@@ -1,0 +1,147 @@
+/* ===========================================================================
+   COLOR THEME — "Sweet Pie" (data-theme="sweet-pie")
+   ---------------------------------------------------------------------------
+   Soft, feminine rosé palette: a gentle rose-pink accent (not a hot magenta),
+   blush surfaces in light, and a warm wine/plum dark (rosy, not near-black).
+   Overrides ONLY tokens already declared in tokens/colors.css. State colors
+   (--brand-success / --brand-warning / --brand-destructive) stay universal;
+   the accent stays distinct from the destructive red.
+
+   Dark block carries the same mode guards as the base dark block
+   (:not(.ds-theme-light):not(.force-light-theme), so those classes still force
+   light) at specificity (0,4,0), winning by specificity + source order.
+   Both blocks declare the SAME token set.
+   =========================================================================== */
+
+/* --- LIGHT --------------------------------------------------------------- */
+[data-theme="sweet-pie"] {
+  --brand-accent: #df5b9b;
+  --brand-accent-emphasis: #c33f80;
+  --brand-info: #df5b9b;
+  --brand-accent-blue: #df5b9b;
+  --secondary-foreground-strong: #000000;
+  --info-foreground-strong: #000000;
+
+  --brand-ink-strong: #b83570;
+  --brand-ink: #4f2338;
+  --sidebar-foreground: #4f2338;
+
+  --background: #fdeef5;
+  --card: #fff6fa;
+  --background-elevated: #fff6fa;
+  --surface: #fff6fa;
+  --sidebar: #fdeef5;
+  --sidebar-accent: #f9dde9;
+  --muted: #fbe2ed;
+  --surface-hover: #fbe2ed;
+
+  --hover-soft: rgba(223, 91, 155, 0.1);
+
+  --card-border: #f6cbe0;
+  --border: #f1b9d5;
+  --input: #eca6c9;
+
+  --outline-ring: #b83570;
+
+  --scrollbar-thumb: #eea6c8;
+  --scrollbar-thumb-hover: #df77a6;
+
+  /* Received (counterpart) chat bubble — themed surface, not neutral gray */
+  --chat-counterpart-bubble-messaging: #f9dbe9;
+  --chat-counterpart-bubble-foreground-messaging: #4f2338;
+
+  --chart-track: #fadfeb;
+  --brand-chart-1: #df5b9b;
+  --brand-chart-2: #ec4899;
+  --brand-chart-3: #d946ef;
+  --brand-chart-4: #f472b6;
+  --brand-chart-5: #c084fc;
+  --brand-chart-6: #db2777;
+  --brand-chart-7: #e879f9;
+  --brand-chart-8: #a855f7;
+  --analytics-chart-primary: #df5b9b;
+  --analytics-chart-primary-fill: rgba(223, 91, 155, 0.16);
+  --analytics-chart-secondary: #ec4899;
+  --analytics-chart-secondary-fill: rgba(236, 72, 153, 0.16);
+  --analytics-chart-tertiary: #d946ef;
+  --analytics-chart-tertiary-fill: rgba(217, 70, 239, 0.18);
+  --analytics-chart-success: #ec4899;
+  --analytics-chart-success-fill: rgba(236, 72, 153, 0.18);
+  --analytics-chart-warning: #d946ef;
+  --analytics-chart-warning-fill: rgba(217, 70, 239, 0.2);
+  --analytics-chart-danger: #c026d3;
+  --analytics-chart-danger-fill: rgba(192, 38, 211, 0.18);
+  --analytics-chart-neutral: #f472b6;
+  --analytics-chart-neutral-fill: rgba(244, 114, 182, 0.18);
+  --analytics-chart-status-open-public: #df5b9b;
+  --analytics-chart-status-pending: #f472b6;
+  --analytics-chart-status-rejected: #c026d3;
+  --analytics-chart-status-closed: #9d174d;
+  --analytics-chart-status-approved-private: #d946ef;
+}
+
+/* --- DARK ---------------------------------------------------------------- */
+.dark[data-theme="sweet-pie"]:not(.ds-theme-light):not(.force-light-theme) {
+  --brand-accent: #ea649e;
+  --brand-accent-emphasis: #f48cbb;
+  --brand-info: #ea649e;
+  --brand-accent-blue: #ea649e;
+  --secondary-foreground-strong: #000000;
+  --info-foreground-strong: #000000;
+
+  --brand-ink-strong: #f088b8;
+  --brand-ink: #f6dde8;
+  --sidebar-foreground: #f6dde8;
+
+  --background: #1b0c13;
+  --card: #29141f;
+  --background-elevated: #29141f;
+  --surface: #29141f;
+  --sidebar: #1b0c13;
+  --sidebar-accent: #2c1622;
+  --muted: #3a2231;
+  --surface-hover: #3a2231;
+
+  --hover-soft: #3a2231;
+
+  --card-border: #6b3a57;
+  --border: #6b3a57;
+  --input: #82486a;
+
+  --outline-ring: #f088b8;
+
+  --scrollbar-thumb: #613851;
+  --scrollbar-thumb-hover: #834d6d;
+
+  --chat-counterpart-bubble-messaging: #412839;
+  --chat-counterpart-bubble-foreground-messaging: #f6dde8;
+
+  --chart-track: #2e1522;
+  --brand-chart-1: #f472b6;
+  --brand-chart-2: #f9a8d4;
+  --brand-chart-3: #e879f9;
+  --brand-chart-4: #fda4af;
+  --brand-chart-5: #ec4899;
+  --brand-chart-6: #d946ef;
+  --brand-chart-7: #f0abfc;
+  --brand-chart-8: #c084fc;
+  --analytics-chart-primary: #f472b6;
+  --analytics-chart-primary-fill: rgba(244, 114, 182, 0.24);
+  --analytics-chart-secondary: #e879f9;
+  --analytics-chart-secondary-fill: rgba(232, 121, 249, 0.2);
+  --analytics-chart-tertiary: #f9a8d4;
+  --analytics-chart-tertiary-fill: rgba(249, 168, 212, 0.22);
+  --analytics-chart-success: #f9a8d4;
+  --analytics-chart-success-fill: rgba(249, 168, 212, 0.18);
+  --analytics-chart-warning: #e879f9;
+  --analytics-chart-warning-fill: rgba(232, 121, 249, 0.22);
+  --analytics-chart-danger: #fb7185;
+  --analytics-chart-danger-fill: rgba(251, 113, 133, 0.2);
+  --analytics-chart-neutral: #f9a8d4;
+  --analytics-chart-neutral-fill: rgba(249, 168, 212, 0.24);
+  --analytics-chart-status-open-public: #f472b6;
+  --analytics-chart-status-pending: #f9a8d4;
+  --analytics-chart-status-rejected: #fb7185;
+  --analytics-chart-status-closed: #ec4899;
+  --analytics-chart-status-approved-private: #e879f9;
+}

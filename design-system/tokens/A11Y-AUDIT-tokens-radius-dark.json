@@ -1,0 +1,729 @@
+[
+  {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.11.4"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "testEnvironment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+      "windowWidth": 764,
+      "windowHeight": 433,
+      "orientationAngle": 0,
+      "orientationType": "landscape-primary"
+    },
+    "timestamp": "2026-05-09T15:01:08.259Z",
+    "url": "http://localhost:6006/iframe.html?id=tokens-radius--default&globals=theme%3Adark&viewMode=story",
+    "toolOptions": {
+      "runOnly": {
+        "type": "tag",
+        "values": ["wcag2aa", "wcag22aa"]
+      },
+      "reporter": "v1"
+    },
+    "inapplicable": [
+      {
+        "id": "valid-lang",
+        "impact": null,
+        "tags": [
+          "cat.language",
+          "wcag2aa",
+          "wcag312",
+          "TTv5",
+          "TT11.b",
+          "EN-301-549",
+          "EN-9.3.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-8.8.1"
+        ],
+        "description": "Ensure lang attributes have valid values",
+        "help": "lang attribute must have a valid value",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/valid-lang?application=webdriverjs",
+        "nodes": []
+      }
+    ],
+    "passes": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f4f4f5",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 16.11,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 16.11"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-lg font-heading text-foreground\">Radius tokens</h3>",
+            "target": ["section:nth-child(1) > h3"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f4f4f5",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 16.11,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 16.11"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-sm font-medium text-foreground\">Radius base</span>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(1) > .gap-1.flex-col.flex > .text-foreground.text-sm.font-medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1aa",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 6.91,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">--radius</code>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(1) > .gap-1.flex-col.flex > .font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1aa",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 6.91,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-muted-foreground\">Base radius (10px). Inherited by --radius-control unless overridden.</p>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(1) > .gap-1.flex-col.flex > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f4f4f5",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 16.11,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 16.11"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-sm font-medium text-foreground\">Radius control</span>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(2) > .gap-1.flex-col.flex > .text-foreground.text-sm.font-medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1aa",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 6.91,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">--radius-control</code>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(2) > .gap-1.flex-col.flex > .font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1aa",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 6.91,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-muted-foreground\">Buttons, inputs, selects. Same as base; locked here so future tweaks decouple from card.</p>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(2) > .gap-1.flex-col.flex > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f4f4f5",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 16.11,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 16.11"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-sm font-medium text-foreground\">Radius card</span>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(3) > .gap-1.flex-col.flex > .text-foreground.text-sm.font-medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1aa",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 6.91,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">--radius-card</code>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(3) > .gap-1.flex-col.flex > .font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1aa",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 6.91,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-muted-foreground\">Cards, dialog surfaces, popovers. Bigger to read as 'container'.</p>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(3) > .gap-1.flex-col.flex > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f4f4f5",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 16.11,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 16.11"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-sm font-medium text-foreground\">Radius pill</span>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(4) > .gap-1.flex-col.flex > .text-foreground.text-sm.font-medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1aa",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 6.91,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">--radius-pill</code>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(4) > .gap-1.flex-col.flex > .font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#a1a1aa",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 6.91,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.91"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-muted-foreground\">Pill shapes (badges, status chips, segmented controls).</p>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(4) > .gap-1.flex-col.flex > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f4f4f5",
+                  "bgColor": "#18181b",
+                  "contrastRatio": 16.11,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 16.11"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-lg font-heading text-foreground\">Applied to typical components</h3>",
+            "target": ["section:nth-child(2) > h3"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#18181b",
+                  "bgColor": "#e4e4e7",
+                  "contrastRatio": 13.96,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 13.96"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<button type=\"button\" class=\"bg-primary px-4 py-2 text-primary-foreground\" style=\"border-radius: var(--radius-control);\">Button — radius-control</button>",
+            "target": [".bg-primary"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#f4f4f5",
+                  "bgColor": "#1d1d21",
+                  "contrastRatio": 15.28,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 15.28"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<div class=\"bg-card p-4 text-card-foreground border ds-border-control\" style=\"border-radius: var(--radius-card);\">Card surface — radius-card</div>",
+            "target": [".bg-card"]
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": null,
+        "tags": [
+          "cat.sensory-and-visual-cues",
+          "wcag2aa",
+          "wcag144",
+          "EN-301-549",
+          "EN-9.1.4.4",
+          "ACT",
+          "RGAAv4",
+          "RGAA-10.4.2"
+        ],
+        "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/meta-viewport?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "meta-viewport",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "<meta> tag does not disable zooming on mobile devices"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+            "target": ["meta[name=\"viewport\"]"]
+          }
+        ]
+      },
+      {
+        "id": "target-size",
+        "impact": null,
+        "tags": ["cat.sensory-and-visual-cues", "wcag22aa", "wcag258"],
+        "description": "Ensure touch targets have sufficient size and space",
+        "help": "All touch targets must be 24px large, or leave sufficient space",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/target-size?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "target-size",
+                "data": {
+                  "minSize": 24,
+                  "width": 688,
+                  "height": 40
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Control has sufficient size (688px by 40px, should be at least 24px by 24px)"
+              },
+              {
+                "id": "target-offset",
+                "data": {
+                  "closestOffset": 24,
+                  "minOffset": 24
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Target has sufficient space from its closest neighbors. Safe clickable space has a diameter of 24px which is at least 24px."
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<button type=\"button\" class=\"bg-primary px-4 py-2 text-primary-foreground\" style=\"border-radius: var(--radius-control);\">Button — radius-control</button>",
+            "target": [".bg-primary"]
+          }
+        ]
+      }
+    ],
+    "incomplete": [],
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#ff1432",
+                  "contrastRatio": 3.89,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"flex h-24 w-full items-center justify-center bg-secondary text-secondary-foreground\" aria-label=\"Radius sample for Radius base\" style=\"border-radius: var(--radius);\"><span class=\"text-sm font-medium\">0.625rem</span></div>",
+                    "target": [
+                      "div[aria-label=\"Radius sample for Radius base\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-sm font-medium\">0.625rem</span>",
+            "target": [
+              "div[aria-label=\"Radius sample for Radius base\"] > .text-sm.font-medium"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#ff1432",
+                  "contrastRatio": 3.89,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"flex h-24 w-full items-center justify-center bg-secondary text-secondary-foreground\" aria-label=\"Radius sample for Radius control\" style=\"border-radius: var(--radius-control);\"><span class=\"text-sm font-medium\">0.625rem</span></div>",
+                    "target": [
+                      ".gap-2.flex-col.flex:nth-child(2) > .h-24.w-full.items-center"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-sm font-medium\">0.625rem</span>",
+            "target": [
+              ".gap-2.flex-col.flex:nth-child(2) > .h-24.w-full.items-center > .text-sm.font-medium"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#ff1432",
+                  "contrastRatio": 3.89,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"flex h-24 w-full items-center justify-center bg-secondary text-secondary-foreground\" aria-label=\"Radius sample for Radius card\" style=\"border-radius: var(--radius-card);\"><span class=\"text-sm font-medium\">1rem</span></div>",
+                    "target": [
+                      "div[aria-label=\"Radius sample for Radius card\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-sm font-medium\">1rem</span>",
+            "target": [
+              "div[aria-label=\"Radius sample for Radius card\"] > .text-sm.font-medium"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#ff1432",
+                  "contrastRatio": 3.89,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"flex h-24 w-full items-center justify-center bg-secondary text-secondary-foreground\" aria-label=\"Radius sample for Radius pill\" style=\"border-radius: var(--radius-pill);\"><span class=\"text-sm font-medium\">9999px</span></div>",
+                    "target": [
+                      "div[aria-label=\"Radius sample for Radius pill\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-sm font-medium\">9999px</span>",
+            "target": [
+              "div[aria-label=\"Radius sample for Radius pill\"] > .text-sm.font-medium"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#ff1432",
+                  "contrastRatio": 3.89,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<span class=\"inline-flex w-max bg-secondary px-3 py-1 text-secondary-foreground\" style=\"border-radius: var(--radius-pill);\">Pill badge — radius-pill</span>",
+                    "target": [".inline-flex"]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"inline-flex w-max bg-secondary px-3 py-1 text-secondary-foreground\" style=\"border-radius: var(--radius-pill);\">Pill badge — radius-pill</span>",
+            "target": [".inline-flex"],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.89 (foreground color: #ffffff, background color: #ff1432, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  }
+]

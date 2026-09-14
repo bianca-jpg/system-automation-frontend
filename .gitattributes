@@ -1,0 +1,17 @@
+# Política de fim de linha do repositório.
+#
+# O índice já está 100% em LF (medido: 0 arquivos `i/crlf` em `git ls-files --eol`),
+# mas isso depende hoje do `core.autocrlf` de cada máquina — convenção oral, não
+# configuração. Um colaborador com `core.autocrlf=false` no Windows que commite
+# qualquer arquivo injeta CRLF no índice e produz um diff mecânico de centenas de
+# arquivos, principalmente em `design-system/`.
+#
+# `text=auto` normaliza texto para LF no índice; `eol=lf` mantém LF também no
+# working tree, para que o comportamento não varie por plataforma.
+* text=auto eol=lf
+
+# Binários rastreados — nunca normalizar. `text=auto` já os detecta pela
+# heurística, mas declarar é explícito e imune a falso positivo.
+*.png   binary
+*.ico   binary
+*.woff2 binary

@@ -1,0 +1,12 @@
+﻿apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: system-automation
+  title: automation - OR 
+  description: Otimização de OR(ordem de reserva) e automação da adequação 
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: website
+  lifecycle: experimental
+  owner: group:default/engenharia_estagiarios

@@ -1,0 +1,829 @@
+[
+  {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.11.4"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "testEnvironment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+      "windowWidth": 764,
+      "windowHeight": 433,
+      "orientationAngle": 0,
+      "orientationType": "landscape-primary"
+    },
+    "timestamp": "2026-05-09T14:59:59.034Z",
+    "url": "http://localhost:6006/iframe.html?id=tokens-spacing--default&viewMode=story",
+    "toolOptions": {
+      "runOnly": {
+        "type": "tag",
+        "values": ["wcag2aa", "wcag22aa"]
+      },
+      "reporter": "v1"
+    },
+    "inapplicable": [
+      {
+        "id": "target-size",
+        "impact": null,
+        "tags": ["cat.sensory-and-visual-cues", "wcag22aa", "wcag258"],
+        "description": "Ensure touch targets have sufficient size and space",
+        "help": "All touch targets must be 24px large, or leave sufficient space",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/target-size?application=webdriverjs",
+        "nodes": []
+      },
+      {
+        "id": "valid-lang",
+        "impact": null,
+        "tags": [
+          "cat.language",
+          "wcag2aa",
+          "wcag312",
+          "TTv5",
+          "TT11.b",
+          "EN-301-549",
+          "EN-9.3.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-8.8.1"
+        ],
+        "description": "Ensure lang attributes have valid values",
+        "help": "lang attribute must have a valid value",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/valid-lang?application=webdriverjs",
+        "nodes": []
+      }
+    ],
+    "passes": [
+      {
+        "id": "color-contrast",
+        "impact": null,
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-lg font-heading text-foreground\">Layout tokens (`--layout-*`)</h3>",
+            "target": ["section:nth-child(1) > h3"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-muted-foreground\">Theme-agnostic dimensions. Bars below render at the actual token width, capped to the viewport for visibility.</p>",
+            "target": ["section:nth-child(1) > .text-sm"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-sm font-medium text-foreground\">Shell max width</span>",
+            "target": [
+              ".gap-1.flex-col.flex:nth-child(1) > .gap-3.items-center.flex > .font-medium.text-sm.text-foreground"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">--layout-shell-max-width</code>",
+            "target": [
+              ".gap-1.flex-col.flex:nth-child(1) > .gap-3.items-center.flex > .font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-muted-foreground\">Maximum content width for app shells (currently 1600px). Used by the page-shell wrapper.</p>",
+            "target": [".gap-1.flex-col.flex:nth-child(1) > p"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-sm font-medium text-foreground\">Sidebar expanded</span>",
+            "target": [
+              ".gap-1.flex-col.flex:nth-child(2) > .gap-3.items-center.flex > .font-medium.text-sm.text-foreground"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">--layout-sidebar-expanded</code>",
+            "target": [
+              ".gap-1.flex-col.flex:nth-child(2) > .gap-3.items-center.flex > .font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-muted-foreground\">Sidebar width in expanded state (15rem). Drives manager + candidate app navigation.</p>",
+            "target": [".gap-1.flex-col.flex:nth-child(2) > p"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-sm font-medium text-foreground\">Sidebar collapsed</span>",
+            "target": [
+              ".gap-1.flex-col.flex:nth-child(3) > .gap-3.items-center.flex > .font-medium.text-sm.text-foreground"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">--layout-sidebar-collapsed</code>",
+            "target": [
+              ".gap-1.flex-col.flex:nth-child(3) > .gap-3.items-center.flex > .font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-muted-foreground\">Sidebar width when collapsed to icon-only (4rem).</p>",
+            "target": [".gap-1.flex-col.flex:nth-child(3) > p"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-lg font-heading text-foreground\">Tailwind spacing scale (gap/p/m utilities)</h3>",
+            "target": ["section:nth-child(2) > h3"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-muted-foreground\">The Tailwind 4 default 4px scale is preserved. Each row visualises a common gap step.</p>",
+            "target": ["section:nth-child(2) > .text-sm"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"w-20 text-xs font-mono text-muted-foreground\">gap-1</code>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(1) > .w-20.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-xs text-muted-foreground\">4px</span>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(1) > .text-xs.text-muted-foreground:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"w-20 text-xs font-mono text-muted-foreground\">gap-2</code>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(2) > .w-20.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-xs text-muted-foreground\">8px</span>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(2) > .text-xs.text-muted-foreground:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"w-20 text-xs font-mono text-muted-foreground\">gap-3</code>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(3) > .w-20.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-xs text-muted-foreground\">12px</span>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(3) > .text-xs.text-muted-foreground:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"w-20 text-xs font-mono text-muted-foreground\">gap-4</code>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(4) > .w-20.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-xs text-muted-foreground\">16px</span>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(4) > .text-xs.text-muted-foreground:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"w-20 text-xs font-mono text-muted-foreground\">gap-6</code>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(5) > .w-20.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-xs text-muted-foreground\">24px</span>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(5) > .text-xs.text-muted-foreground:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"w-20 text-xs font-mono text-muted-foreground\">gap-8</code>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(6) > .w-20.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-xs text-muted-foreground\">32px</span>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(6) > .text-xs.text-muted-foreground:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"w-20 text-xs font-mono text-muted-foreground\">gap-12</code>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(7) > .w-20.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-xs text-muted-foreground\">48px</span>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(7) > .text-xs.text-muted-foreground:nth-child(3)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"w-20 text-xs font-mono text-muted-foreground\">gap-16</code>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(8) > .w-20.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-xs text-muted-foreground\">64px</span>",
+            "target": [
+              ".gap-3.items-center.flex:nth-child(8) > .text-xs.text-muted-foreground:nth-child(3)"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": null,
+        "tags": [
+          "cat.sensory-and-visual-cues",
+          "wcag2aa",
+          "wcag144",
+          "EN-301-549",
+          "EN-9.1.4.4",
+          "ACT",
+          "RGAAv4",
+          "RGAA-10.4.2"
+        ],
+        "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/meta-viewport?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "meta-viewport",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "<meta> tag does not disable zooming on mobile devices"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+            "target": ["meta[name=\"viewport\"]"]
+          }
+        ]
+      }
+    ],
+    "incomplete": [],
+    "violations": []
+  }
+]

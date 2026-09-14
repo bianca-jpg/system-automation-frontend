@@ -1,0 +1,47 @@
+﻿{
+  "name": "system-automation-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.5.2",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@system-automation/design-system": "file:./design-system",
+    "@tanstack/react-query": "^5.102.5",
+    "jose": "^6.2.2",
+    "lucide-react": "^0.546.0",
+    "next": "^16.2.2",
+    "next-auth": "^5.0.0-beta.30",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-error-boundary": "^6.1.1",
+    "react-hook-form": "^7.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.12.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.2.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.1.7",
+    "jsdom": "^29.1.1",
+    "tailwindcss": "^4.1.18",
+    "typescript": "~5.9.3",
+    "vitest": "^4.1.5"
+  }
+}

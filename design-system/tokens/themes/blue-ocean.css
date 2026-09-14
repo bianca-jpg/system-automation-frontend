@@ -1,0 +1,158 @@
+/* ===========================================================================
+   COLOR THEME — "Blue Ocean" (data-theme="blue-ocean")
+   ---------------------------------------------------------------------------
+   Orthogonal to the light/dark MODE (.light/.dark class). Overrides ONLY
+   tokens already declared in tokens/colors.css — no new primitives — so the
+   "no dangling var()" contract stays green. State colors
+   (--brand-success / --brand-warning / --brand-destructive) stay universal.
+
+   Specificity (load-bearing): base dark block is
+   `.dark:not(.ds-theme-light):not(.force-light-theme)` = (0,3,0). The dark
+   block below carries the SAME mode guards
+   (`.dark[data-theme="…"]:not(.ds-theme-light):not(.force-light-theme)` = (0,4,0)),
+   so `.ds-theme-light` / `.force-light-theme` still force light here, and it
+   wins by specificity + source order (imported after colors.css). Both blocks
+   declare the SAME token set.
+   =========================================================================== */
+
+/* --- LIGHT --------------------------------------------------------------- */
+[data-theme="blue-ocean"] {
+  /* Accent / interactive (derives --secondary, --info, --accent-blue) */
+  --brand-accent: #0b6fd4;
+  --brand-accent-emphasis: #0857ab;
+  --brand-info: #0b6fd4;
+  --brand-accent-blue: #0b6fd4;
+  --secondary-foreground-strong: #ffffff;
+  --info-foreground-strong: #ffffff;
+
+  /* Ink — themed text. --brand-ink drives --foreground/--card-foreground (body +
+     titles); --brand-ink-strong drives --primary (buttons + text-primary). Dark
+     shades of the accent in light, so text reads themed instead of pure black. */
+  --brand-ink-strong: #0a5aa5;
+  --brand-ink: #1c3f5e;
+  --sidebar-foreground: #1c3f5e;
+
+  /* Surfaces — airy tinted ladder: page → card (elevated, still tinted, NOT white) */
+  --background: #eaf2fd;
+  --card: #f4f9ff;
+  --background-elevated: #f4f9ff;
+  --surface: #f4f9ff;
+  --sidebar: #eaf2fd;
+  --sidebar-accent: #d9e6f9;
+  --muted: #e0ebfb;
+  --surface-hover: #e0ebfb;
+
+  /* Hover wash used across menus, table rows, buttons (was neutral gray) */
+  --hover-soft: rgba(11, 111, 212, 0.1);
+
+  /* Borders / inputs (feed the --ds-border-* color-mix layer) */
+  --card-border: #c0daf5;
+  --border: #aaccf0;
+  --input: #97c0eb;
+
+  /* Focus ring */
+  --outline-ring: #0b6fd4;
+
+  --scrollbar-thumb: #9dbce8;
+  --scrollbar-thumb-hover: #6a9cdd;
+
+  /* Received (counterpart) chat bubble — themed surface, not neutral gray */
+  --chat-counterpart-bubble-messaging: #dce8f9;
+  --chat-counterpart-bubble-foreground-messaging: #1c3f5e;
+
+  /* Charts — teal → blue ocean ramp (feeds --analytics-chart-categorical-*) */
+  --chart-track: #e0ebfa;
+  --brand-chart-1: #0891b2;
+  --brand-chart-2: #0ea5e9;
+  --brand-chart-3: #2563eb;
+  --brand-chart-4: #0369a1;
+  --brand-chart-5: #06b6d4;
+  --brand-chart-6: #3b82f6;
+  --brand-chart-7: #1d4ed8;
+  --brand-chart-8: #0284c7;
+  --analytics-chart-primary: #0b6fd4;
+  --analytics-chart-primary-fill: rgba(11, 111, 212, 0.16);
+  --analytics-chart-secondary: #06b6d4;
+  --analytics-chart-secondary-fill: rgba(6, 182, 212, 0.16);
+  --analytics-chart-tertiary: #2563eb;
+  --analytics-chart-tertiary-fill: rgba(37, 99, 235, 0.18);
+  --analytics-chart-success: #0ea5e9;
+  --analytics-chart-success-fill: rgba(14, 165, 233, 0.18);
+  --analytics-chart-warning: #0891b2;
+  --analytics-chart-warning-fill: rgba(8, 145, 178, 0.2);
+  --analytics-chart-danger: #0369a1;
+  --analytics-chart-danger-fill: rgba(3, 105, 161, 0.18);
+  --analytics-chart-neutral: #3b82f6;
+  --analytics-chart-neutral-fill: rgba(59, 130, 246, 0.18);
+  --analytics-chart-status-open-public: #0b6fd4;
+  --analytics-chart-status-pending: #0ea5e9;
+  --analytics-chart-status-rejected: #0369a1;
+  --analytics-chart-status-closed: #075985;
+  --analytics-chart-status-approved-private: #2563eb;
+}
+
+/* --- DARK ---------------------------------------------------------------- */
+.dark[data-theme="blue-ocean"]:not(.ds-theme-light):not(.force-light-theme) {
+  --brand-accent: #1f8bff;
+  --brand-accent-emphasis: #4aa3ff;
+  --brand-info: #1f8bff;
+  --brand-accent-blue: #1f8bff;
+  --secondary-foreground-strong: #000000;
+  --info-foreground-strong: #000000;
+
+  --brand-ink-strong: #5aa8ff;
+  --brand-ink: #d9e7f4;
+  --sidebar-foreground: #d9e7f4;
+
+  --background: #0a0f1a;
+  --card: #101826;
+  --background-elevated: #101826;
+  --surface: #101826;
+  --sidebar: #0a0f1a;
+  --sidebar-accent: #141d2e;
+  --muted: #1b2740;
+  --surface-hover: #1b2740;
+
+  --hover-soft: #1b2740;
+
+  --card-border: #2c4972;
+  --border: #2c4972;
+  --input: #395c8e;
+
+  --outline-ring: #5aa8ff;
+
+  --scrollbar-thumb: #35507a;
+  --scrollbar-thumb-hover: #4a6ba0;
+
+  --chat-counterpart-bubble-messaging: #233252;
+  --chat-counterpart-bubble-foreground-messaging: #d9e7f4;
+
+  --chart-track: #17223a;
+  --brand-chart-1: #38bdf8;
+  --brand-chart-2: #22d3ee;
+  --brand-chart-3: #60a5fa;
+  --brand-chart-4: #0ea5e9;
+  --brand-chart-5: #67e8f9;
+  --brand-chart-6: #3b82f6;
+  --brand-chart-7: #7dd3fc;
+  --brand-chart-8: #2dd4bf;
+  --analytics-chart-primary: #38bdf8;
+  --analytics-chart-primary-fill: rgba(56, 189, 248, 0.24);
+  --analytics-chart-secondary: #22d3ee;
+  --analytics-chart-secondary-fill: rgba(34, 211, 238, 0.2);
+  --analytics-chart-tertiary: #60a5fa;
+  --analytics-chart-tertiary-fill: rgba(96, 165, 250, 0.22);
+  --analytics-chart-success: #7dd3fc;
+  --analytics-chart-success-fill: rgba(125, 211, 252, 0.18);
+  --analytics-chart-warning: #67e8f9;
+  --analytics-chart-warning-fill: rgba(103, 232, 249, 0.22);
+  --analytics-chart-danger: #0ea5e9;
+  --analytics-chart-danger-fill: rgba(14, 165, 233, 0.2);
+  --analytics-chart-neutral: #93c5fd;
+  --analytics-chart-neutral-fill: rgba(147, 197, 253, 0.24);
+  --analytics-chart-status-open-public: #38bdf8;
+  --analytics-chart-status-pending: #7dd3fc;
+  --analytics-chart-status-rejected: #0ea5e9;
+  --analytics-chart-status-closed: #0284c7;
+  --analytics-chart-status-approved-private: #60a5fa;
+}

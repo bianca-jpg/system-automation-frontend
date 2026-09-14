@@ -1,0 +1,34 @@
+﻿/* ===========================
+   SHADOW TOKENS — project Design System
+   Control/card/popover/modal elevations. Light and dark themes have different
+   blur/spread profiles for legibility.
+   =========================== */
+
+@theme inline {
+  --shadow-control: var(--shadow-control);
+  --shadow-card: var(--shadow-card);
+  --shadow-popover: var(--shadow-popover);
+  --shadow-modal: var(--shadow-modal);
+}
+
+:root,
+.ds-theme-light {
+  --shadow-control: 0 1px 2px rgba(15, 23, 42, 0.12);
+  --shadow-card:
+    0 1px 2px rgba(15, 23, 42, 0.04), 0 14px 32px -24px rgba(15, 23, 42, 0.22),
+    0 32px 68px -42px rgba(15, 23, 42, 0.16);
+  --shadow-popover: 0 18px 40px rgba(15, 23, 42, 0.12);
+  --shadow-modal: 0 28px 72px -20px rgba(15, 23, 42, 0.28);
+}
+
+:root.dark:not(.force-light-theme),
+.dark:not(.ds-theme-light):not(.force-light-theme),
+.ds-theme-dark {
+  --shadow-control: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-card:
+    0 1px 1px rgba(0, 0, 0, 0.45), 0 16px 34px -24px rgba(0, 0, 0, 0.72),
+    0 32px 72px -46px rgba(0, 0, 0, 0.82),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  --shadow-popover: 0 20px 48px rgba(0, 0, 0, 0.42);
+  --shadow-modal: 0 32px 80px -18px rgba(0, 0, 0, 0.78);
+}

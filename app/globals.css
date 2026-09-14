@@ -1,0 +1,29 @@
+﻿/*
+ * Entrada única de CSS do app.
+ *
+ * Toda a fundação visual — tokens de cor, espaçamento, raio, sombra, camadas,
+ * tipografia, motion e interações, mais os temas de cor do eixo `data-theme` —
+ * vem do design system. Nada de token é redefinido aqui: divergência de cor,
+ * fonte ou espaçamento se resolve no design system da raiz, não no app.
+ */
+@import "@system-automation/design-system/globals.css";
+
+/*
+ * O design system carrega o Tailwind com `source(none)` para não vazar
+ * candidatos de utilitário do catálogo nos bundles dos apps. Isso desliga a
+ * detecção automática de fontes, então cada consumidor registra as suas.
+ * Sem estes `@source`, nenhuma classe escrita no app é gerada — a lista cobre
+ * TODAS as camadas do FSD, inclusive as que hoje não têm nenhum `className`
+ * (`entities`, `lib`): sem elas registradas, a primeira classe escrita ali
+ * sumiria sem erro nenhum.
+ */
+@source "../app";
+@source "../features";
+@source "../widgets";
+@source "../entities";
+@source "../shared";
+@source "../lib";
+
+body {
+  min-height: 100vh;
+}

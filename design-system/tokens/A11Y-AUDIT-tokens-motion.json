@@ -1,0 +1,424 @@
+[
+  {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.11.4"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "testEnvironment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.0.0 Safari/537.36",
+      "windowWidth": 764,
+      "windowHeight": 433,
+      "orientationAngle": 0,
+      "orientationType": "landscape-primary"
+    },
+    "timestamp": "2026-05-09T15:00:39.915Z",
+    "url": "http://localhost:6006/iframe.html?id=tokens-motion--default&viewMode=story",
+    "toolOptions": {
+      "runOnly": {
+        "type": "tag",
+        "values": ["wcag2aa", "wcag22aa"]
+      },
+      "reporter": "v1"
+    },
+    "inapplicable": [
+      {
+        "id": "target-size",
+        "impact": null,
+        "tags": ["cat.sensory-and-visual-cues", "wcag22aa", "wcag258"],
+        "description": "Ensure touch targets have sufficient size and space",
+        "help": "All touch targets must be 24px large, or leave sufficient space",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/target-size?application=webdriverjs",
+        "nodes": []
+      },
+      {
+        "id": "valid-lang",
+        "impact": null,
+        "tags": [
+          "cat.language",
+          "wcag2aa",
+          "wcag312",
+          "TTv5",
+          "TT11.b",
+          "EN-301-549",
+          "EN-9.3.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-8.8.1"
+        ],
+        "description": "Ensure lang attributes have valid values",
+        "help": "lang attribute must have a valid value",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/valid-lang?application=webdriverjs",
+        "nodes": []
+      }
+    ],
+    "passes": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-lg font-heading text-foreground\">Shimmer text (`shimmer-slide` keyframe)</h3>",
+            "target": ["section:nth-child(1) > h3"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-muted-foreground\">Loading-state effect for text. Gradient overlay clipped to the text glyphs, animated 1.6s linear infinite.</p>",
+            "target": ["section:nth-child(1) > .text-sm.text-muted-foreground"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-lg font-heading text-foreground\">Ripple effect (`ds-ripple` keyframe + `.animate-ds-ripple`)</h3>",
+            "target": ["section:nth-child(2) > h3"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-muted-foreground\">Touch / click feedback. 780ms cubic-bezier curve. Used by the Button component.</p>",
+            "target": ["section:nth-child(2) > .text-sm.text-muted-foreground"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">@keyframes ds-ripple</code>",
+            "target": [
+              "section:nth-child(2) > .items-center.gap-6.p-6 > .text-xs.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-lg font-heading text-foreground\">Spinner (`ds-spinner-rotate` + `ds-spinner-dash` keyframes)</h3>",
+            "target": ["section:nth-child(3) > h3"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-muted-foreground\">Indeterminate progress indicator. Combined rotate + dash-array animation matching the spinner primitive.</p>",
+            "target": ["section:nth-child(3) > .text-sm.text-muted-foreground"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"text-xs font-mono text-muted-foreground\">@keyframes ds-spinner-rotate / ds-spinner-dash</code>",
+            "target": [
+              "section:nth-child(3) > .items-center.gap-6.p-6 > .text-xs.font-mono"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-lg font-heading text-foreground\">Reduced motion</h3>",
+            "target": ["section:nth-child(4) > h3"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#171717",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 17.62,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.62"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-foreground\">",
+            "target": [".text-sm.text-foreground"]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6b7280",
+                  "bgColor": "#fdfdfd",
+                  "contrastRatio": 4.75,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.75"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<code class=\"font-mono text-xs text-muted-foreground\">prefers-reduced-motion: reduce</code>",
+            "target": [".text-sm.text-foreground > .font-mono.text-xs"]
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": null,
+        "tags": [
+          "cat.sensory-and-visual-cues",
+          "wcag2aa",
+          "wcag144",
+          "EN-301-549",
+          "EN-9.1.4.4",
+          "ACT",
+          "RGAAv4",
+          "RGAA-10.4.2"
+        ],
+        "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/meta-viewport?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "meta-viewport",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "<meta> tag does not disable zooming on mobile devices"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+            "target": ["meta[name=\"viewport\"]"]
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<span class=\"shimmer-text text-xl font-heading\" data-text=\"Carregando dados…\">Carregando dados…</span>",
+                    "target": [".shimmer-text"]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"shimmer-text text-xl font-heading\" data-text=\"Carregando dados…\">Carregando dados…</span>",
+            "target": [".shimmer-text"],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          }
+        ]
+      }
+    ],
+    "violations": []
+  }
+]

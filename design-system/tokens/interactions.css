@@ -1,0 +1,5 @@
+/* Interaction-state geometry is theme-invariant. Colors remain semantic and
+   come from colors.css so every palette keeps the same focus behavior. */
+:root {
+  --ds-focus-ring-width: 1px;
+}

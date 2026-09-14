@@ -1,0 +1,133 @@
+﻿name: CI
+
+# Portao de qualidade da aplicacao. Espelha a estrutura de gates do
+# collab-frontend (um job por verificacao + resumo consolidado),
+# adaptada ao toolchain deste repo: pnpm + Node 24, nao npm + Node 20.
+#
+# Fora de escopo aqui, por ausencia de script no package.json — ver automationFT-10:
+# format:check (sem Prettier), security:secrets, audit e e2e:web:smoke (sem Playwright).
+#
+# O design system e diretorio internalizado, nao submodulo: o checkout NAO usa
+# `submodules: true`. O CI proprio do DS, que tem lockfile e scripts separados,
+# entra em workflow distinto (automationFT-2).
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Um run por ref: push seguido de novo push cancela o anterior.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint (ESLint)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      # action-setup antes do setup-node: `cache: pnpm` precisa do pnpm no PATH.
+      # A versao vem de `packageManager` no package.json — nao duplicar aqui.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+
+  typecheck:
+    name: Typecheck (tsc)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+
+  test:
+    name: Unit tests (vitest)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # Sem `--passWithNoTests` de proposito: `vitest.config.ts` exclui
+      # `design-system/**`, e ampliar esse exclude nao pode passar em silencio.
+      - run: pnpm test
+
+  build:
+    name: Build (Next.js)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+  quality-gate:
+    name: Gate — relatório consolidado
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs:
+      - lint
+      - typecheck
+      - test
+      - build
+    if: always()
+    steps:
+      - name: Resumo no GitHub Actions
+        env:
+          LINT: ${{ needs.lint.result }}
+          TYPECHECK: ${{ needs.typecheck.result }}
+          TEST: ${{ needs.test.result }}
+          BUILD: ${{ needs.build.result }}
+        run: |
+          set -e
+          {
+            echo "## Aplicação — qualidade consolidada"
+            echo ""
+            echo "| Verificação | Estado |"
+            echo "|-------------|--------|"
+            echo "| ESLint | \`$LINT\` |"
+            echo "| TypeScript | \`$TYPECHECK\` |"
+            echo "| vitest | \`$TEST\` |"
+            echo "| Build Next.js | \`$BUILD\` |"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          ok=true
+          for r in "$LINT" "$TYPECHECK" "$TEST" "$BUILD"; do
+            if [ "$r" != "success" ]; then ok=false; break; fi
+          done
+
+          if [ "$ok" = true ]; then
+            echo "### Estado: OK para merge" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          echo "### Estado: bloqueado — corrija os jobs em vermelho acima" >> "$GITHUB_STEP_SUMMARY"
+          exit 1

@@ -1,0 +1,6 @@
+/* Storybook entry point: production foundations plus catalog-only sources. */
+@import "./foundation.css";
+
+@source "./components";
+@source "./stories";
+@source "./lib";

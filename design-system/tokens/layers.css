@@ -1,0 +1,29 @@
+﻿/* ===========================
+   LAYER TOKENS — project Design System
+   Global stacking contexts only. Local component internals may use small
+   relative z-index values without consuming this scale.
+   =========================== */
+
+@theme inline {
+  --z-index-content: var(--layer-content);
+  --z-index-raised: var(--layer-raised);
+  --z-index-sticky: var(--layer-sticky);
+  --z-index-navigation: var(--layer-navigation);
+  --z-index-popover: var(--layer-popover);
+  --z-index-overlay: var(--layer-overlay);
+  --z-index-modal: var(--layer-modal);
+  --z-index-toast: var(--layer-toast);
+  --z-index-skip-link: var(--layer-skip-link);
+}
+
+:root {
+  --layer-content: 0;
+  --layer-raised: 10;
+  --layer-sticky: 20;
+  --layer-navigation: 30;
+  --layer-popover: 40;
+  --layer-overlay: 45;
+  --layer-modal: 50;
+  --layer-toast: 60;
+  --layer-skip-link: 70;
+}

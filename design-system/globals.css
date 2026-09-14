@@ -1,0 +1,11 @@
+/*
+ * Production entry point. Shared foundations live in foundation.css so
+ * Storybook can opt into catalog-only sources without shipping those utility
+ * candidates in application bundles.
+ */
+@import "./foundation.css";
+
+@source "./components";
+@source not "./components/**/*.stories.*";
+/* lib/ carries TS class maps (for example accentToneTokens). */
+@source "./lib";

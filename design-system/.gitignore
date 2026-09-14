@@ -1,0 +1,9 @@
+node_modules/
+storybook-static/
+dist/
+.turbo/
+.next/
+.cache/
+*.tsbuildinfo
+coverage/
+

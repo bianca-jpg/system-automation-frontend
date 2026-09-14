@@ -1,0 +1,15 @@
+# Configuração local de pnpm do design system.
+#
+# Enquanto o DS era submódulo de ATACADO-OR-FRONT-END, o pnpm herdava estas
+# decisões do pnpm-workspace.yaml do app. Agora que o DS vive fora dele, precisa
+# das suas próprias — sem isso o pnpm aborta qualquer script daqui com
+# ERR_PNPM_IGNORED_BUILDS.
+#
+# chromedriver vem do @axe-core/cli (script a11y:audit) e seu postinstall baixa
+# um driver de navegador; fica desligado por ser download pesado e opcional.
+allowBuilds:
+  "@parcel/watcher": false
+  chromedriver: false
+  esbuild: false
+  sharp: false
+  unrs-resolver: false

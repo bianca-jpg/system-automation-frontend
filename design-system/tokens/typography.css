@@ -1,0 +1,27 @@
+﻿/* ===========================
+   TYPOGRAPHY TOKENS — project Design System
+   Body/heading stacks are routed through stable CSS vars. Each app is the
+   intentional font-loading adapter: next/font/local injects --font-satoshi,
+   while the design system owns --font-heading / --font-sans and fallbacks.
+   Font binaries stay in the apps; the shared weight contract is 400/500/700.
+   =========================== */
+
+:root {
+  --font-inter: ui-sans-serif, system-ui, sans-serif;
+  --font-satoshi: var(--font-inter);
+  --typography-font-weight-regular: 400;
+  --typography-font-weight-medium: 500;
+  --typography-font-weight-bold: 700;
+}
+
+@theme inline {
+  --font-sans:
+    var(--font-satoshi), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading:
+    var(--font-satoshi), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-weight-normal: var(--typography-font-weight-regular);
+  --font-weight-regular: var(--typography-font-weight-regular);
+  --font-weight-medium: var(--typography-font-weight-medium);
+  --font-weight-bold: var(--typography-font-weight-bold);
+}

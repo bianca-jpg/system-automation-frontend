@@ -1,0 +1,836 @@
+﻿/* ===========================
+   COLOR TOKENS — project Design System
+   - @theme inline maps semantic Tailwind 4 utilities to CSS vars
+   - :root blocks define light + dark theme values
+   - Lock-default-palette: zero out Tailwind 4 default palette so semantic
+     tokens are the only sanctioned color path (Pitfall #3 mitigation)
+   =========================== */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-card-border: var(--card-border);
+
+  --color-hover-soft: var(--hover-soft);
+
+  --color-ring: var(--outline-ring);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  /* D-color-01 (Phase 35-1) — Strong foreground tokens for WCAG 2.2 AA. */
+  --color-secondary-foreground-strong: var(--secondary-foreground-strong);
+  --color-success-foreground-strong: var(--success-foreground-strong);
+  --color-warning-foreground-strong: var(--warning-foreground-strong);
+  --color-destructive-foreground-strong: var(--destructive-foreground-strong);
+  --color-info-foreground-strong: var(--info-foreground-strong);
+  /* Text rendered on neutral/subtle state surfaces (badges, inline status). */
+  --color-success-text: var(--success-text);
+  --color-warning-text: var(--warning-text);
+  --color-destructive-text: var(--destructive-text);
+  --color-info-text: var(--info-text);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-purple: var(--accent-purple);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-message-receipt-sending: var(--message-receipt-sending);
+  --color-message-receipt-received: var(--message-receipt-received);
+  --color-message-receipt-read: var(--message-receipt-read);
+
+  /* Elevated-surface popover tokens (Onda 4 §3.2) — registered so
+     bg-popover / text-popover-foreground generate CSS (were phantom). */
+  --color-popover: var(--background-elevated);
+  --color-popover-foreground: var(--foreground);
+
+  /* CRITICAL — Pitfall #3 + D-cva-01: lock Tailwind 4 default palette so
+     semantic tokens are the only sanctioned color path. Each utility
+     `bg-blue-500`, `text-red-600`, etc. resolves to nothing because the
+     CSS var is :initial. ESLint better-tailwindcss/no-restricted-classes
+     enforces this in source code (warn → error in Phase 38). */
+  --color-red-50: initial;
+  --color-red-100: initial;
+  --color-red-200: initial;
+  --color-red-300: initial;
+  --color-red-400: initial;
+  --color-red-500: initial;
+  --color-red-600: initial;
+  --color-red-700: initial;
+  --color-red-800: initial;
+  --color-red-900: initial;
+  --color-red-950: initial;
+
+  --color-blue-50: initial;
+  --color-blue-100: initial;
+  --color-blue-200: initial;
+  --color-blue-300: initial;
+  --color-blue-400: initial;
+  --color-blue-500: initial;
+  --color-blue-600: initial;
+  --color-blue-700: initial;
+  --color-blue-800: initial;
+  --color-blue-900: initial;
+  --color-blue-950: initial;
+
+  --color-green-50: initial;
+  --color-green-100: initial;
+  --color-green-200: initial;
+  --color-green-300: initial;
+  --color-green-400: initial;
+  --color-green-500: initial;
+  --color-green-600: initial;
+  --color-green-700: initial;
+  --color-green-800: initial;
+  --color-green-900: initial;
+  --color-green-950: initial;
+
+  --color-yellow-50: initial;
+  --color-yellow-100: initial;
+  --color-yellow-200: initial;
+  --color-yellow-300: initial;
+  --color-yellow-400: initial;
+  --color-yellow-500: initial;
+  --color-yellow-600: initial;
+  --color-yellow-700: initial;
+  --color-yellow-800: initial;
+  --color-yellow-900: initial;
+  --color-yellow-950: initial;
+
+  --color-amber-50: initial;
+  --color-amber-100: initial;
+  --color-amber-200: initial;
+  --color-amber-300: initial;
+  --color-amber-400: initial;
+  --color-amber-500: initial;
+  --color-amber-600: initial;
+  --color-amber-700: initial;
+  --color-amber-800: initial;
+  --color-amber-900: initial;
+  --color-amber-950: initial;
+
+  --color-orange-50: initial;
+  --color-orange-100: initial;
+  --color-orange-200: initial;
+  --color-orange-300: initial;
+  --color-orange-400: initial;
+  --color-orange-500: initial;
+  --color-orange-600: initial;
+  --color-orange-700: initial;
+  --color-orange-800: initial;
+  --color-orange-900: initial;
+  --color-orange-950: initial;
+
+  --color-gray-50: initial;
+  --color-gray-100: initial;
+  --color-gray-200: initial;
+  --color-gray-300: initial;
+  --color-gray-400: initial;
+  --color-gray-500: initial;
+  --color-gray-600: initial;
+  --color-gray-700: initial;
+  --color-gray-800: initial;
+  --color-gray-900: initial;
+  --color-gray-950: initial;
+
+  --color-zinc-50: initial;
+  --color-zinc-100: initial;
+  --color-zinc-200: initial;
+  --color-zinc-300: initial;
+  --color-zinc-400: initial;
+  --color-zinc-500: initial;
+  --color-zinc-600: initial;
+  --color-zinc-700: initial;
+  --color-zinc-800: initial;
+  --color-zinc-900: initial;
+  --color-zinc-950: initial;
+
+  --color-slate-50: initial;
+  --color-slate-100: initial;
+  --color-slate-200: initial;
+  --color-slate-300: initial;
+  --color-slate-400: initial;
+  --color-slate-500: initial;
+  --color-slate-600: initial;
+  --color-slate-700: initial;
+  --color-slate-800: initial;
+  --color-slate-900: initial;
+  --color-slate-950: initial;
+
+  --color-stone-50: initial;
+  --color-stone-100: initial;
+  --color-stone-200: initial;
+  --color-stone-300: initial;
+  --color-stone-400: initial;
+  --color-stone-500: initial;
+  --color-stone-600: initial;
+  --color-stone-700: initial;
+  --color-stone-800: initial;
+  --color-stone-900: initial;
+  --color-stone-950: initial;
+
+  --color-neutral-50: initial;
+  --color-neutral-100: initial;
+  --color-neutral-200: initial;
+  --color-neutral-300: initial;
+  --color-neutral-400: initial;
+  --color-neutral-500: initial;
+  --color-neutral-600: initial;
+  --color-neutral-700: initial;
+  --color-neutral-800: initial;
+  --color-neutral-900: initial;
+  --color-neutral-950: initial;
+
+  --color-emerald-50: initial;
+  --color-emerald-100: initial;
+  --color-emerald-200: initial;
+  --color-emerald-300: initial;
+  --color-emerald-400: initial;
+  --color-emerald-500: initial;
+  --color-emerald-600: initial;
+  --color-emerald-700: initial;
+  --color-emerald-800: initial;
+  --color-emerald-900: initial;
+  --color-emerald-950: initial;
+
+  --color-sky-50: initial;
+  --color-sky-100: initial;
+  --color-sky-200: initial;
+  --color-sky-300: initial;
+  --color-sky-400: initial;
+  --color-sky-500: initial;
+  --color-sky-600: initial;
+  --color-sky-700: initial;
+  --color-sky-800: initial;
+  --color-sky-900: initial;
+  --color-sky-950: initial;
+
+  --color-rose-50: initial;
+  --color-rose-100: initial;
+  --color-rose-200: initial;
+  --color-rose-300: initial;
+  --color-rose-400: initial;
+  --color-rose-500: initial;
+  --color-rose-600: initial;
+  --color-rose-700: initial;
+  --color-rose-800: initial;
+  --color-rose-900: initial;
+  --color-rose-950: initial;
+
+  --color-indigo-50: initial;
+  --color-indigo-100: initial;
+  --color-indigo-200: initial;
+  --color-indigo-300: initial;
+  --color-indigo-400: initial;
+  --color-indigo-500: initial;
+  --color-indigo-600: initial;
+  --color-indigo-700: initial;
+  --color-indigo-800: initial;
+  --color-indigo-900: initial;
+  --color-indigo-950: initial;
+
+  --color-violet-50: initial;
+  --color-violet-100: initial;
+  --color-violet-200: initial;
+  --color-violet-300: initial;
+  --color-violet-400: initial;
+  --color-violet-500: initial;
+  --color-violet-600: initial;
+  --color-violet-700: initial;
+  --color-violet-800: initial;
+  --color-violet-900: initial;
+  --color-violet-950: initial;
+
+  --color-purple-50: initial;
+  --color-purple-100: initial;
+  --color-purple-200: initial;
+  --color-purple-300: initial;
+  --color-purple-400: initial;
+  --color-purple-500: initial;
+  --color-purple-600: initial;
+  --color-purple-700: initial;
+  --color-purple-800: initial;
+  --color-purple-900: initial;
+  --color-purple-950: initial;
+
+  --color-fuchsia-50: initial;
+  --color-fuchsia-100: initial;
+  --color-fuchsia-200: initial;
+  --color-fuchsia-300: initial;
+  --color-fuchsia-400: initial;
+  --color-fuchsia-500: initial;
+  --color-fuchsia-600: initial;
+  --color-fuchsia-700: initial;
+  --color-fuchsia-800: initial;
+  --color-fuchsia-900: initial;
+  --color-fuchsia-950: initial;
+
+  --color-pink-50: initial;
+  --color-pink-100: initial;
+  --color-pink-200: initial;
+  --color-pink-300: initial;
+  --color-pink-400: initial;
+  --color-pink-500: initial;
+  --color-pink-600: initial;
+  --color-pink-700: initial;
+  --color-pink-800: initial;
+  --color-pink-900: initial;
+  --color-pink-950: initial;
+
+  --color-teal-50: initial;
+  --color-teal-100: initial;
+  --color-teal-200: initial;
+  --color-teal-300: initial;
+  --color-teal-400: initial;
+  --color-teal-500: initial;
+  --color-teal-600: initial;
+  --color-teal-700: initial;
+  --color-teal-800: initial;
+  --color-teal-900: initial;
+  --color-teal-950: initial;
+
+  --color-cyan-50: initial;
+  --color-cyan-100: initial;
+  --color-cyan-200: initial;
+  --color-cyan-300: initial;
+  --color-cyan-400: initial;
+  --color-cyan-500: initial;
+  --color-cyan-600: initial;
+  --color-cyan-700: initial;
+  --color-cyan-800: initial;
+  --color-cyan-900: initial;
+  --color-cyan-950: initial;
+
+  --color-lime-50: initial;
+  --color-lime-100: initial;
+  --color-lime-200: initial;
+  --color-lime-300: initial;
+  --color-lime-400: initial;
+  --color-lime-500: initial;
+  --color-lime-600: initial;
+  --color-lime-700: initial;
+  --color-lime-800: initial;
+  --color-lime-900: initial;
+  --color-lime-950: initial;
+}
+
+/* Critical-paint fallbacks used before the theme-init script applies mode.
+   Explicit .light/.dark/data-theme states switch globals.css to --background. */
+:root {
+  --fouc-background-light: #ffffff;
+  --fouc-background-dark: #0a0a0a;
+}
+
+/* ===========================
+   LIGHT THEME — Color Token Values
+   =========================== */
+:root,
+.ds-theme-light {
+  /* Brand primitives (Onda 2 / F-01) — a new color theme redefines THESE ~18
+     values; the semantic tokens below derive from them. Light values. */
+  --brand-accent: #007aff;
+  --brand-accent-emphasis: #0062cc;
+  --brand-ink: #1d1d1f;
+  --brand-ink-strong: #000000;
+  --brand-success: #34c759;
+  --brand-warning: #ff9500;
+  --brand-destructive: #d70015;
+  --brand-info: #007aff;
+  --brand-accent-blue: #007aff;
+  --brand-accent-purple: #af52de;
+  --brand-chart-1: #008198;
+  --brand-chart-2: #007eae;
+  --brand-chart-3: #00c3d0;
+  --brand-chart-4: #00c0e8;
+  --brand-chart-5: #00d2e0;
+  --brand-chart-6: #0088ff;
+  --brand-chart-7: #0091ff;
+  --brand-chart-8: #1e6ef4;
+
+  --background: #ffffff;
+  --background-elevated: var(--background);
+  --sidebar: #ffffff;
+  --card: var(--background);
+  --card-foreground: var(--brand-ink);
+  --card-border: #e5e5ea;
+  --foreground: var(--brand-ink);
+  --primary: var(--brand-ink-strong);
+  --primary-foreground: #ffffff;
+  --secondary: var(--brand-accent);
+  --secondary-foreground: #ffffff;
+  /* Foregrounds for normal-size text on SOLID semantic surfaces. The contrast
+     suite validates these pairs in every light/dark color theme. Accent themes
+     override secondary/info when white is the higher-contrast direction. */
+  --secondary-foreground-strong: #000000;
+  --success-foreground-strong: #000000;
+  --warning-foreground-strong: #000000;
+  /* Destructive actions read white-on-red by product decision. The surface is
+     intentionally dark enough for normal-size labels to clear WCAG AA 4.5:1. */
+  --destructive-foreground-strong: #ffffff;
+  --info-foreground-strong: #000000;
+
+  /* Text on neutral/subtle state surfaces. Keep this separate from the solid
+     surface foreground above: the contrast direction can be the opposite.
+     Destructive is decoupled on purpose — subtle badges keep dark text while
+     solid destructive surfaces use white. */
+  --success-text: var(--success-foreground-strong);
+  --warning-text: var(--warning-foreground-strong);
+  --destructive-text: #000000;
+  --info-text: var(--brand-ink-strong);
+  --accent: var(--surface-hover);
+  --accent-foreground: var(--foreground);
+  --muted: #e5e5ea;
+  --muted-foreground: #636366;
+
+  --border: #d1d1d6;
+  --input: #c7c7cc;
+  --hover-soft: oklch(0.922 0 0 / 50%);
+
+  --outline-ring: #007aff;
+
+  --success: var(--brand-success);
+  --warning: var(--brand-warning);
+  --destructive: var(--brand-destructive);
+  --info: var(--brand-info);
+
+  --placeholder: #8e8e93;
+  --sidebar-foreground: #1d1d1f;
+  --sidebar-accent: #e5e5ea;
+  --chat-user-bubble: #e5e5ea;
+  --chat-user-bubble-foreground: #1d1d1f;
+  --chat-user-bubble-llm: var(--chat-user-bubble);
+  --chat-user-bubble-foreground-llm: var(--chat-user-bubble-foreground);
+  --chat-user-bubble-messaging: var(--chat-user-bubble);
+  --chat-user-bubble-foreground-messaging: var(--chat-user-bubble-foreground);
+  --chat-minimap-marker: color-mix(
+    in srgb,
+    var(--muted-foreground) 44%,
+    transparent
+  );
+  --chat-minimap-marker-active: color-mix(
+    in srgb,
+    var(--muted-foreground) 82%,
+    transparent
+  );
+  --chat-minimap-surface: var(--background-elevated);
+  --message-receipt-sending: color-mix(
+    in srgb,
+    var(--chat-user-bubble-foreground-messaging) 80%,
+    var(--chat-user-bubble-messaging) 20%
+  );
+  --message-receipt-received: color-mix(
+    in srgb,
+    var(--chat-user-bubble-foreground-messaging) 80%,
+    var(--chat-user-bubble-messaging) 20%
+  );
+  --message-receipt-read: var(--chat-user-bubble-foreground-messaging);
+  --chat-counterpart-bubble-messaging: var(--chat-bubble-default);
+  --chat-counterpart-bubble-foreground-messaging: var(--chat-bubble-default-fg);
+
+  /* Chat Bubble Color Themes - Light Mode */
+  --chat-bubble-default: #e5e5ea;
+  --chat-bubble-default-fg: #1d1d1f;
+  --chat-bubble-blue: #0b6fd4; /* Blue Ocean accent */
+  --chat-bubble-blue-fg: #ffffff;
+  --chat-bubble-pink: #df5b9b; /* Sweet Pie accent */
+  --chat-bubble-pink-fg: #000000;
+  --chat-bubble-green: #34c759; /* legacy — no longer offered in the picker */
+  --chat-bubble-green-fg: #000000;
+  --chat-bubble-purple: #7c3aed; /* Purple Rain accent */
+  --chat-bubble-purple-fg: #ffffff;
+  /* Red (chat bubble colour option) */
+  --chat-bubble-red: #e11d48;
+  --chat-bubble-red-fg: #ffffff;
+
+  --surface-code: #fafafa;
+  --surface-code-header: #e5e7eb;
+  --surface-code-foreground: #171717;
+  --surface-code-number: #a1a1aa;
+  --surface: var(--background);
+  --surface-hover: #e5e5ea;
+  --chart-track: #f1f3f9;
+  --analytics-chart-grid: rgba(15, 23, 42, 0.14);
+  --analytics-chart-axis: rgba(15, 23, 42, 0.78);
+  --analytics-chart-axis-strong: rgba(15, 23, 42, 0.92);
+  --analytics-chart-tooltip-bg: rgba(255, 255, 255, 0.96);
+  --analytics-chart-tooltip-border: rgba(15, 23, 42, 0.1);
+  --analytics-chart-tooltip-text: #111827;
+  --analytics-chart-doughnut-label-fill: #ffffff;
+  --analytics-chart-doughnut-label-stroke: rgba(15, 23, 42, 0.84);
+  --analytics-chart-primary: #0088ff;
+  --analytics-chart-primary-fill: rgba(0, 136, 255, 0.16);
+  --analytics-chart-secondary: #00c0e8;
+  --analytics-chart-secondary-fill: rgba(0, 192, 232, 0.16);
+  --analytics-chart-tertiary: #1e6ef4;
+  --analytics-chart-tertiary-fill: rgba(30, 110, 244, 0.18);
+  --analytics-chart-success: #5cb8ff;
+  --analytics-chart-success-fill: rgba(92, 184, 255, 0.18);
+  --analytics-chart-warning: #3cd3fe;
+  --analytics-chart-warning-fill: rgba(60, 211, 254, 0.22);
+  --analytics-chart-danger: #007eae;
+  --analytics-chart-danger-fill: rgba(0, 126, 174, 0.18);
+  --analytics-chart-neutral: #0091ff;
+  --analytics-chart-neutral-fill: rgba(0, 145, 255, 0.18);
+  --analytics-chart-categorical-1: var(--brand-chart-1);
+  --analytics-chart-categorical-2: var(--brand-chart-2);
+  --analytics-chart-categorical-3: var(--brand-chart-3);
+  --analytics-chart-categorical-4: var(--brand-chart-4);
+  --analytics-chart-categorical-5: var(--brand-chart-5);
+  --analytics-chart-categorical-6: var(--brand-chart-6);
+  --analytics-chart-categorical-7: var(--brand-chart-7);
+  --analytics-chart-categorical-8: var(--brand-chart-8);
+  --analytics-chart-status-open-public: #0088ff;
+  --analytics-chart-status-pending: #5cb8ff;
+  --analytics-chart-status-rejected: #008198;
+  --analytics-chart-status-closed: #007eae;
+  --analytics-chart-status-approved-private: #0091ff;
+  --auth-showcase: #171717;
+  --auth-surface: #fdfdfd;
+  --auth-seam: rgba(23, 23, 23, 0.08);
+
+  /* Scrollbar colors */
+  --scrollbar-thumb: #888;
+  --scrollbar-thumb-hover: #555;
+  --scrollbar-track: transparent;
+
+  --accent-blue: var(--brand-accent-blue);
+  --accent-purple: var(--brand-accent-purple);
+  --inverse: #ffffff;
+  /* Contrast ink: dark-on-light for the ActionButton "contrast" variant;
+     theme-invariant (that variant is always white-bg). Onda 4. */
+  --contrast-foreground: #09090b;
+
+  /* Border system */
+  --ds-border-card: var(--card-border);
+  --ds-border-neutral: color-mix(in srgb, var(--border) 70%, transparent);
+  --ds-border-divider: color-mix(in srgb, var(--border) 42%, transparent);
+  --ds-border-seam: color-mix(in srgb, var(--border) 30%, transparent);
+  --ds-border-skeleton: color-mix(in srgb, var(--border) 30%, transparent);
+  --ds-border-surface: color-mix(in srgb, var(--border) 60%, transparent);
+  --ds-border-control: color-mix(in srgb, var(--input) 82%, transparent);
+  --ds-border-control-strong: color-mix(
+    in srgb,
+    var(--border) 80%,
+    transparent
+  );
+  --ds-border-focus: var(--outline-ring);
+  --ds-border-emphasis: color-mix(in srgb, var(--primary) 34%, transparent);
+  --ds-border-emphasis-strong: color-mix(
+    in srgb,
+    var(--primary) 56%,
+    transparent
+  );
+  --ds-border-info: color-mix(in srgb, var(--info) 22%, transparent);
+  --ds-border-info-strong: color-mix(in srgb, var(--info) 42%, transparent);
+  --ds-border-success: color-mix(in srgb, var(--success) 22%, transparent);
+  --ds-border-success-strong: color-mix(
+    in srgb,
+    var(--success) 42%,
+    transparent
+  );
+  --ds-border-warning: color-mix(in srgb, var(--warning) 24%, transparent);
+  --ds-border-warning-strong: color-mix(
+    in srgb,
+    var(--warning) 44%,
+    transparent
+  );
+  --ds-border-destructive: color-mix(
+    in srgb,
+    var(--destructive) 22%,
+    transparent
+  );
+  --ds-border-destructive-strong: color-mix(
+    in srgb,
+    var(--destructive) 44%,
+    transparent
+  );
+  --ds-border-accent-blue: color-mix(
+    in srgb,
+    var(--accent-blue) 28%,
+    transparent
+  );
+  --ds-border-accent-blue-strong: color-mix(
+    in srgb,
+    var(--accent-blue) 44%,
+    transparent
+  );
+  --ds-border-accent-purple: color-mix(
+    in srgb,
+    var(--accent-purple) 28%,
+    transparent
+  );
+  --ds-border-accent-purple-strong: color-mix(
+    in srgb,
+    var(--accent-purple) 44%,
+    transparent
+  );
+  --ds-border-inverse: color-mix(in srgb, var(--inverse) 12%, transparent);
+  --ds-border-inverse-strong: color-mix(
+    in srgb,
+    var(--inverse) 28%,
+    transparent
+  );
+}
+
+/* ===========================
+   DARK THEME — Color Token Values
+   =========================== */
+:root.dark:not(.force-light-theme),
+.dark:not(.ds-theme-light):not(.force-light-theme),
+.ds-theme-dark {
+  /* Brand primitives — dark values (accent-blue/purple stay light-only). */
+  --brand-accent: #0a84ff;
+  --brand-accent-emphasis: #0a84ff;
+  --brand-ink: #f5f5f7;
+  --brand-ink-strong: #ffffff;
+  --brand-success: #30d158;
+  --brand-warning: #ff9f0a;
+  --brand-destructive: #cf2f28;
+  --brand-info: #0a84ff;
+  --brand-chart-1: #6dd9ff;
+  --brand-chart-2: #5cb8ff;
+  --brand-chart-3: #3cd3fe;
+  --brand-chart-4: #00d2e0;
+  --brand-chart-5: #00c0e8;
+  --brand-chart-6: #0091ff;
+  --brand-chart-7: #0088ff;
+  --brand-chart-8: #1e6ef4;
+
+  --background: #0a0a0a;
+  --background-elevated: #161618;
+  --sidebar: #0a0a0a;
+  --card: #161618;
+  --card-foreground: var(--brand-ink);
+  --card-border: #2c2c2e;
+  --foreground: var(--brand-ink);
+  --primary: var(--brand-ink-strong);
+  --primary-foreground: #0a0a0a;
+  --secondary: var(--brand-accent);
+  --secondary-foreground: #ffffff;
+  /* Normal-size text on solid semantic surfaces. The bright state colors clear
+     AA against black, while the darker destructive surface clears AA against
+     white. Color themes override accent-driven pairs. */
+  --secondary-foreground-strong: #000000;
+  --success-foreground-strong: #000000;
+  --warning-foreground-strong: #000000;
+  --destructive-foreground-strong: #ffffff;
+  --info-foreground-strong: #000000;
+
+  /* Bright semantic text on dark neutral/subtle surfaces. */
+  --success-text: var(--success);
+  --warning-text: var(--warning);
+  /* Keep status text brighter than the solid destructive surface: the former
+     sits on dark neutrals, while the latter carries white action labels. */
+  --destructive-text: #ff453a;
+  --info-text: var(--info);
+  --accent: var(--surface-hover);
+  --accent-foreground: var(--foreground);
+  --muted: #2c2c2e;
+  --muted-foreground: #98989d;
+
+  --border: #2a2a2c;
+  --input: #38383a;
+  --hover-soft: #2c2c2e;
+
+  --success: var(--brand-success);
+  --warning: var(--brand-warning);
+  --destructive: var(--brand-destructive);
+  --info: var(--brand-info);
+
+  --placeholder: #8e8e93;
+  --sidebar-foreground: #f5f5f7;
+  --sidebar-accent: #1c1c1e;
+  --chat-user-bubble: #3a3a3c;
+  --chat-user-bubble-foreground: #f5f5f7;
+  --chat-user-bubble-llm: var(--chat-user-bubble);
+  --chat-user-bubble-foreground-llm: var(--chat-user-bubble-foreground);
+  --chat-user-bubble-messaging: var(--chat-user-bubble);
+  --chat-user-bubble-foreground-messaging: var(--chat-user-bubble-foreground);
+  --chat-minimap-marker: color-mix(
+    in srgb,
+    var(--muted-foreground) 44%,
+    transparent
+  );
+  --chat-minimap-marker-active: color-mix(
+    in srgb,
+    var(--muted-foreground) 82%,
+    transparent
+  );
+  --chat-minimap-surface: var(--background-elevated);
+  --message-receipt-sending: color-mix(
+    in srgb,
+    var(--chat-user-bubble-foreground-messaging) 80%,
+    var(--chat-user-bubble-messaging) 20%
+  );
+  --message-receipt-received: color-mix(
+    in srgb,
+    var(--chat-user-bubble-foreground-messaging) 80%,
+    var(--chat-user-bubble-messaging) 20%
+  );
+  --message-receipt-read: var(--chat-user-bubble-foreground-messaging);
+  --chat-counterpart-bubble-messaging: var(--chat-bubble-default);
+  --chat-counterpart-bubble-foreground-messaging: var(--chat-bubble-default-fg);
+
+  /* Chat Bubble Color Themes - Dark Mode */
+  --chat-bubble-default: #3a3a3c;
+  --chat-bubble-default-fg: #f5f5f7;
+  /* Colored user bubbles keep white copy in dark mode. Their surfaces use the
+     darker brand step so normal-size message text still clears WCAG AA. */
+  --chat-bubble-blue: #0b6fd4; /* Blue Ocean accent */
+  --chat-bubble-blue-fg: #ffffff;
+  --chat-bubble-pink: #b83570; /* Sweet Pie dark brand step */
+  --chat-bubble-pink-fg: #ffffff;
+  --chat-bubble-green: #1f7a35; /* legacy — no longer offered in the picker */
+  --chat-bubble-green-fg: #ffffff;
+  --chat-bubble-purple: #7c3aed; /* Purple Rain accent */
+  --chat-bubble-purple-fg: #ffffff;
+  /* Red (chat bubble colour option) */
+  --chat-bubble-red: #e11d48;
+  --chat-bubble-red-fg: #ffffff;
+
+  --surface-code: #1e1e1e;
+  --surface-code-header: #2d2d2d;
+  --surface-code-foreground: #e4e4e7;
+  --surface-code-number: #6e7681;
+  --surface: #161618;
+  --surface-hover: #2c2c2e;
+  --chart-track: #2f3136;
+  --analytics-chart-grid: rgba(244, 244, 245, 0.1);
+  --analytics-chart-axis: rgba(244, 244, 245, 0.66);
+  --analytics-chart-axis-strong: rgba(244, 244, 245, 0.88);
+  --analytics-chart-tooltip-bg: rgba(9, 9, 11, 0.94);
+  --analytics-chart-tooltip-border: rgba(255, 255, 255, 0.08);
+  --analytics-chart-tooltip-text: #f4f4f5;
+  --analytics-chart-doughnut-label-fill: #ffffff;
+  --analytics-chart-doughnut-label-stroke: rgba(9, 9, 11, 0.88);
+  --analytics-chart-primary: #5cb8ff;
+  --analytics-chart-primary-fill: rgba(92, 184, 255, 0.24);
+  --analytics-chart-secondary: #3cd3fe;
+  --analytics-chart-secondary-fill: rgba(60, 211, 254, 0.2);
+  --analytics-chart-tertiary: #0091ff;
+  --analytics-chart-tertiary-fill: rgba(0, 145, 255, 0.22);
+  --analytics-chart-success: #6dd9ff;
+  --analytics-chart-success-fill: rgba(109, 217, 255, 0.18);
+  --analytics-chart-warning: #6dd9ff;
+  --analytics-chart-warning-fill: rgba(109, 217, 255, 0.22);
+  --analytics-chart-danger: #00c0e8;
+  --analytics-chart-danger-fill: rgba(0, 192, 232, 0.24);
+  --analytics-chart-neutral: #5cb8ff;
+  --analytics-chart-neutral-fill: rgba(92, 184, 255, 0.24);
+  --analytics-chart-categorical-1: var(--brand-chart-1);
+  --analytics-chart-categorical-2: var(--brand-chart-2);
+  --analytics-chart-categorical-3: var(--brand-chart-3);
+  --analytics-chart-categorical-4: var(--brand-chart-4);
+  --analytics-chart-categorical-5: var(--brand-chart-5);
+  --analytics-chart-categorical-6: var(--brand-chart-6);
+  --analytics-chart-categorical-7: var(--brand-chart-7);
+  --analytics-chart-categorical-8: var(--brand-chart-8);
+  --analytics-chart-status-open-public: #0091ff;
+  --analytics-chart-status-pending: #6dd9ff;
+  --analytics-chart-status-rejected: #00d2e0;
+  --analytics-chart-status-closed: #00c0e8;
+  --analytics-chart-status-approved-private: #5cb8ff;
+  --auth-showcase: #111215;
+  --auth-surface: #18191d;
+  --auth-seam: rgba(244, 244, 245, 0.08);
+
+  --outline-ring: #0a84ff;
+
+  /* Scrollbar colors - dark mode (inverted for better contrast) */
+  --scrollbar-thumb: #555;
+  --scrollbar-thumb-hover: #888;
+  --scrollbar-track: transparent;
+
+  /* Border system — repetido aqui de proposito.
+     Estes tokens sao derivados (color-mix sobre --border/--input/--primary/...),
+     e var() dentro de custom property e substituido no ponto da DECLARACAO, nao no
+     ponto de uso: declarado so no bloco claro, o valor herdado por uma subarvore
+     .dark carrega o --border CLARO. Repetir as mesmas declaracoes aqui faz o
+     color-mix re-resolver contra os tokens base deste bloco. Nao ha cor nova —
+     as linhas sao identicas as do bloco claro, de proposito.
+     Paridade coberta por tokens/__tests__/token-contract.test.ts. */
+  --ds-border-card: var(--card-border);
+  --ds-border-neutral: color-mix(in srgb, var(--border) 70%, transparent);
+  --ds-border-divider: color-mix(in srgb, var(--border) 42%, transparent);
+  --ds-border-seam: color-mix(in srgb, var(--border) 30%, transparent);
+  --ds-border-skeleton: color-mix(in srgb, var(--border) 30%, transparent);
+  --ds-border-surface: color-mix(in srgb, var(--border) 60%, transparent);
+  --ds-border-control: color-mix(in srgb, var(--input) 82%, transparent);
+  --ds-border-control-strong: color-mix(
+    in srgb,
+    var(--border) 80%,
+    transparent
+  );
+  --ds-border-focus: var(--outline-ring);
+  --ds-border-emphasis: color-mix(in srgb, var(--primary) 34%, transparent);
+  --ds-border-emphasis-strong: color-mix(
+    in srgb,
+    var(--primary) 56%,
+    transparent
+  );
+  --ds-border-info: color-mix(in srgb, var(--info) 22%, transparent);
+  --ds-border-info-strong: color-mix(in srgb, var(--info) 42%, transparent);
+  --ds-border-success: color-mix(in srgb, var(--success) 22%, transparent);
+  --ds-border-success-strong: color-mix(
+    in srgb,
+    var(--success) 42%,
+    transparent
+  );
+  --ds-border-warning: color-mix(in srgb, var(--warning) 24%, transparent);
+  --ds-border-warning-strong: color-mix(
+    in srgb,
+    var(--warning) 44%,
+    transparent
+  );
+  --ds-border-destructive: color-mix(
+    in srgb,
+    var(--destructive) 22%,
+    transparent
+  );
+  --ds-border-destructive-strong: color-mix(
+    in srgb,
+    var(--destructive) 44%,
+    transparent
+  );
+  --ds-border-accent-blue: color-mix(
+    in srgb,
+    var(--accent-blue) 28%,
+    transparent
+  );
+  --ds-border-accent-blue-strong: color-mix(
+    in srgb,
+    var(--accent-blue) 44%,
+    transparent
+  );
+  --ds-border-accent-purple: color-mix(
+    in srgb,
+    var(--accent-purple) 28%,
+    transparent
+  );
+  --ds-border-accent-purple-strong: color-mix(
+    in srgb,
+    var(--accent-purple) 44%,
+    transparent
+  );
+  --ds-border-inverse: color-mix(in srgb, var(--inverse) 12%, transparent);
+  --ds-border-inverse-strong: color-mix(
+    in srgb,
+    var(--inverse) 28%,
+    transparent
+  );
+}

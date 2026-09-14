@@ -1,0 +1,8 @@
+﻿site_name: automation - OR
+plugins:
+  - techdocs-core
+nav:
+  - Visão geral: index.md
+  - Arquitetura: architecture.md
+  - Design System: design-system.md
+  - Regra de coleção: colecao.md

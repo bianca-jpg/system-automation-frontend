@@ -1,0 +1,148 @@
+/* ===========================================================================
+   COLOR THEME — "Purple Rain" (data-theme="purple-rain")
+   ---------------------------------------------------------------------------
+   Rich violet/purple palette. Orthogonal to the light/dark MODE (.light/.dark
+   class). Overrides ONLY tokens already declared in tokens/colors.css. State
+   colors (--brand-success / --brand-warning / --brand-destructive) stay
+   universal; the accent uses a violet hue distinct from the destructive red.
+
+   Dark block carries the same mode guards as the base dark block
+   (:not(.ds-theme-light):not(.force-light-theme), so those classes still force
+   light) at specificity (0,4,0), winning by specificity + source order.
+   Both blocks declare the SAME token set.
+   =========================================================================== */
+
+/* --- LIGHT --------------------------------------------------------------- */
+[data-theme="purple-rain"] {
+  --brand-accent: #7c3aed;
+  --brand-accent-emphasis: #6d28d9;
+  --brand-info: #7c3aed;
+  --brand-accent-blue: #7c3aed;
+  --secondary-foreground-strong: #ffffff;
+  --info-foreground-strong: #ffffff;
+
+  /* Ink — themed text. --brand-ink drives --foreground/--card-foreground (body +
+     titles); --brand-ink-strong drives --primary (buttons + text-primary). */
+  --brand-ink-strong: #6d28d9;
+  --brand-ink: #322058;
+  --sidebar-foreground: #322058;
+
+  --background: #efeafb;
+  --card: #f7f3fe;
+  --background-elevated: #f7f3fe;
+  --surface: #f7f3fe;
+  --sidebar: #efeafb;
+  --sidebar-accent: #ddd2f5;
+  --muted: #e7defa;
+  --surface-hover: #e7defa;
+
+  --hover-soft: rgba(124, 58, 237, 0.1);
+
+  --card-border: #d6c9f2;
+  --border: #c3b0ec;
+  --input: #ac93e5;
+
+  --outline-ring: #7c3aed;
+
+  --scrollbar-thumb: #bda6ee;
+  --scrollbar-thumb-hover: #9a72e4;
+
+  /* Received (counterpart) chat bubble — themed surface, not neutral gray */
+  --chat-counterpart-bubble-messaging: #e6dbf9;
+  --chat-counterpart-bubble-foreground-messaging: #322058;
+
+  --chart-track: #e9e1f8;
+  --brand-chart-1: #6d28d9;
+  --brand-chart-2: #7c3aed;
+  --brand-chart-3: #8b5cf6;
+  --brand-chart-4: #9333ea;
+  --brand-chart-5: #a855f7;
+  --brand-chart-6: #c026d3;
+  --brand-chart-7: #7e22ce;
+  --brand-chart-8: #a78bfa;
+  --analytics-chart-primary: #7c3aed;
+  --analytics-chart-primary-fill: rgba(124, 58, 237, 0.16);
+  --analytics-chart-secondary: #9333ea;
+  --analytics-chart-secondary-fill: rgba(147, 51, 234, 0.16);
+  --analytics-chart-tertiary: #8b5cf6;
+  --analytics-chart-tertiary-fill: rgba(139, 92, 246, 0.18);
+  --analytics-chart-success: #a855f7;
+  --analytics-chart-success-fill: rgba(168, 85, 247, 0.18);
+  --analytics-chart-warning: #9333ea;
+  --analytics-chart-warning-fill: rgba(147, 51, 234, 0.2);
+  --analytics-chart-danger: #6d28d9;
+  --analytics-chart-danger-fill: rgba(109, 40, 217, 0.18);
+  --analytics-chart-neutral: #8b5cf6;
+  --analytics-chart-neutral-fill: rgba(139, 92, 246, 0.18);
+  --analytics-chart-status-open-public: #7c3aed;
+  --analytics-chart-status-pending: #a855f7;
+  --analytics-chart-status-rejected: #6d28d9;
+  --analytics-chart-status-closed: #4c1d95;
+  --analytics-chart-status-approved-private: #9333ea;
+}
+
+/* --- DARK ---------------------------------------------------------------- */
+.dark[data-theme="purple-rain"]:not(.ds-theme-light):not(.force-light-theme) {
+  --brand-accent: #8b5cf6;
+  --brand-accent-emphasis: #a78bfa;
+  --brand-info: #8b5cf6;
+  --brand-accent-blue: #8b5cf6;
+  --secondary-foreground-strong: #000000;
+  --info-foreground-strong: #000000;
+
+  --brand-ink-strong: #a78bfa;
+  --brand-ink: #e6ddf5;
+  --sidebar-foreground: #e6ddf5;
+
+  --background: #100a1e;
+  --card: #1a1230;
+  --background-elevated: #1a1230;
+  --surface: #1a1230;
+  --sidebar: #100a1e;
+  --sidebar-accent: #1c1436;
+  --muted: #241a3f;
+  --surface-hover: #241a3f;
+
+  --hover-soft: #241a3f;
+
+  --card-border: #3d2a68;
+  --border: #3d2a68;
+  --input: #4d3580;
+
+  --outline-ring: #a78bfa;
+
+  --scrollbar-thumb: #4a3575;
+  --scrollbar-thumb-hover: #664a99;
+
+  --chat-counterpart-bubble-messaging: #2e2252;
+  --chat-counterpart-bubble-foreground-messaging: #e6ddf5;
+
+  --chart-track: #241a3f;
+  --brand-chart-1: #a78bfa;
+  --brand-chart-2: #c4b5fd;
+  --brand-chart-3: #8b5cf6;
+  --brand-chart-4: #a855f7;
+  --brand-chart-5: #d8b4fe;
+  --brand-chart-6: #c084fc;
+  --brand-chart-7: #9d7bf0;
+  --brand-chart-8: #e0ccff;
+  --analytics-chart-primary: #a78bfa;
+  --analytics-chart-primary-fill: rgba(167, 139, 250, 0.24);
+  --analytics-chart-secondary: #c084fc;
+  --analytics-chart-secondary-fill: rgba(192, 132, 252, 0.2);
+  --analytics-chart-tertiary: #8b5cf6;
+  --analytics-chart-tertiary-fill: rgba(139, 92, 246, 0.22);
+  --analytics-chart-success: #c4b5fd;
+  --analytics-chart-success-fill: rgba(196, 181, 253, 0.18);
+  --analytics-chart-warning: #c084fc;
+  --analytics-chart-warning-fill: rgba(192, 132, 252, 0.22);
+  --analytics-chart-danger: #a855f7;
+  --analytics-chart-danger-fill: rgba(168, 85, 247, 0.2);
+  --analytics-chart-neutral: #d8b4fe;
+  --analytics-chart-neutral-fill: rgba(216, 180, 254, 0.24);
+  --analytics-chart-status-open-public: #a78bfa;
+  --analytics-chart-status-pending: #c4b5fd;
+  --analytics-chart-status-rejected: #a855f7;
+  --analytics-chart-status-closed: #8b5cf6;
+  --analytics-chart-status-approved-private: #c084fc;
+}

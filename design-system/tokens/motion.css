@@ -1,0 +1,287 @@
+﻿/* ===========================
+   MOTION TOKENS — project Design System
+   Animation @keyframes + shimmer color tokens + reduced-motion overrides.
+   The --shimmer-* tokens are color values used by the shimmer-text
+   gradient overlay; they live in motion because they are part of the
+   shimmer animation contract, not the static color palette.
+   =========================== */
+
+@theme inline {
+  --duration-instant: var(--motion-duration-instant);
+  --duration-fast: var(--motion-duration-fast);
+  --duration-standard: var(--motion-duration-standard);
+  --duration-slow: var(--motion-duration-slow);
+  --duration-deliberate: var(--motion-duration-deliberate);
+  --duration-ambient: var(--motion-duration-ambient);
+  --ease-standard: var(--motion-ease-standard);
+  --ease-emphasized: var(--motion-ease-emphasized);
+  --ease-linear: var(--motion-ease-linear);
+}
+
+:root {
+  --motion-duration-instant: 0ms;
+  --motion-duration-fast: 120ms;
+  --motion-duration-standard: 200ms;
+  --motion-duration-slow: 500ms;
+  --motion-duration-deliberate: 780ms;
+  --motion-duration-ambient: 1600ms;
+  --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-linear: linear;
+}
+
+:root,
+.ds-theme-light {
+  /* COR BASE DO TEXTO DO SHIMMER (MODO LIGHT) - TROQUE AQUI */
+  --shimmer-text-color: #aeaeae;
+
+  /* Cores do SHIMMER para LIGHT (aplicadas como overlay) */
+  --shimmer-from: rgba(0, 0, 0, 0);
+  --shimmer-via-1: rgba(0, 0, 0, 0.15);
+  --shimmer-via-2: rgba(0, 0, 0, 0.3);
+  --shimmer-to: rgba(0, 0, 0, 0);
+
+  /* Typing indicator dots */
+  --typing-dot: #71717a;
+}
+
+:root.dark:not(.force-light-theme),
+.dark:not(.ds-theme-light):not(.force-light-theme),
+.ds-theme-dark {
+  /* COR BASE DO TEXTO DO SHIMMER (MODO DARK) - TROQUE AQUI */
+  --shimmer-text-color: #71717a; /* zinc-500 */
+
+  /* Cores do SHIMMER para DARK (aplicadas como overlay) */
+  --shimmer-from: rgba(255, 255, 255, 0);
+  --shimmer-via-1: rgba(255, 255, 255, 0.15);
+  --shimmer-via-2: rgba(255, 255, 255, 0.3);
+  --shimmer-to: rgba(255, 255, 255, 0);
+
+  /* Typing indicator dots */
+  --typing-dot: #a1a1aa;
+}
+
+/* ===========================
+   SHIMMER DENTRO DO TEXTO
+   =========================== */
+
+/* Animação do "faixo" passando pelo texto */
+@keyframes shimmer-slide {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+/* Classe aplicada ao texto para receber o shimmer clipado */
+.shimmer-text {
+  /* Define a cor base do texto */
+  color: var(--shimmer-text-color);
+
+  /* Posiciona para receber o pseudo-elemento */
+  position: relative;
+  display: inline-block;
+}
+
+.shimmer-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Gradiente do shimmer */
+  background-image: linear-gradient(
+    90deg,
+    var(--shimmer-from) 0%,
+    var(--shimmer-via-1) 35%,
+    var(--shimmer-via-2) 50%,
+    var(--shimmer-via-1) 65%,
+    var(--shimmer-to) 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer-slide var(--motion-duration-ambient)
+    var(--motion-ease-linear) infinite;
+
+  /* Clip do gradiente no texto */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Respeitar usuários com redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-fast: 0ms;
+    --motion-duration-standard: 0ms;
+    --motion-duration-slow: 0ms;
+    --motion-duration-deliberate: 0ms;
+    --motion-duration-ambient: 1ms;
+  }
+
+  .shimmer-text::before {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
+/* ===========================
+   PROGRESS INDETERMINATE
+   =========================== */
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+/* ===========================
+   RIPPLE EFFECT (Design System)
+   =========================== */
+
+@keyframes ds-ripple {
+  0% {
+    transform: scale(0.08);
+    opacity: 0.34;
+  }
+
+  100% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+}
+
+.animate-ds-ripple {
+  animation: ds-ripple var(--motion-duration-deliberate)
+    var(--motion-ease-emphasized) forwards;
+}
+
+/* Respeitar usuários com redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ds-ripple {
+    animation: none !important;
+  }
+
+  .animate-\[progress-indeterminate_1\.5s_ease-in-out_infinite\] {
+    animation: none !important;
+    transform: translateX(0%) !important;
+    opacity: 0.6;
+  }
+}
+
+/* ===========================
+   SPINNER (Design System)
+   =========================== */
+
+@keyframes ds-spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ds-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dashoffset: -125px;
+  }
+}
+
+.ds-spinner {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ds-spinner-rotate var(--motion-duration-ambient)
+    var(--motion-ease-linear) infinite;
+}
+
+.ds-spinner__circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: ds-spinner-dash var(--motion-duration-ambient)
+    var(--motion-ease-emphasized) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-spinner {
+    animation: none !important;
+  }
+
+  .ds-spinner__circle {
+    animation: none !important;
+  }
+}
+
+/* ===========================
+   PARTICLE FLOW (Design System)
+   =========================== */
+
+@keyframes ds-particle-flow {
+  0% {
+    inset-inline-start: -1rem;
+    opacity: 0;
+    transform: translateY(0) scale(0.7) rotate(0deg);
+  }
+
+  14% {
+    opacity: 0.42;
+  }
+
+  72% {
+    opacity: 0.24;
+  }
+
+  100% {
+    inset-inline-start: calc(100% + 1rem);
+    opacity: 0;
+    transform: translateY(var(--ds-particle-drift, 0)) scale(0.9) rotate(120deg);
+  }
+}
+
+.ds-particle-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ds-particle {
+  position: absolute;
+  inset-inline-start: -1rem;
+  top: var(--ds-particle-top, 50%);
+  width: var(--ds-particle-size, 0.75rem);
+  height: var(--ds-particle-size, 0.75rem);
+  color: color-mix(in srgb, var(--primary) 72%, transparent);
+  opacity: 0;
+  filter: drop-shadow(
+    0 0 0.25rem color-mix(in srgb, var(--primary) 28%, transparent)
+  );
+  animation: ds-particle-flow var(--ds-particle-duration, 8s) linear
+    var(--ds-particle-delay, 0s) infinite;
+  will-change: inset-inline-start, opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-particle {
+    display: none !important;
+    animation: none !important;
+  }
+}

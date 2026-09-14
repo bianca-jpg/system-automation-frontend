@@ -1,0 +1,22 @@
+﻿/* ===========================
+   SPACING TOKENS — project Design System
+   Semantic layout spacing. Values do not change between light/dark.
+   =========================== */
+
+@theme inline {
+  --spacing-inline-compact: var(--space-inline-compact);
+  --spacing-control-gap: var(--space-control-gap);
+  --spacing-content-gap: var(--space-content-gap);
+  --spacing-section-gap: var(--space-section-gap);
+  --spacing-page-gutter: var(--space-page-gutter);
+}
+
+:root,
+.ds-theme-light {
+  --space-inline-compact: 0.25rem;
+  --space-control-gap: 0.5rem;
+  --space-content-gap: 1rem;
+  --space-section-gap: 1.5rem;
+  --space-page-gutter: clamp(1rem, 2.5vw, 2rem);
+  --layout-shell-max-width: 1600px;
+}

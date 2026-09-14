@@ -1,0 +1,451 @@
+﻿@import "tailwindcss" source(none);
+@import "tw-animate-css";
+
+/* ===========================
+   TOKEN MODULES — project Design System
+   Each tokens/*.css owns a single token category (colors, spacing, radius,
+   elevation, layers, typography, motion). Tailwind 4 merges
+   `@theme inline` blocks across imports, so partial scopes here are fine.
+   FONT NOTES:
+   - Satoshi is loaded via next/font/local in each app's lib/fonts.ts
+     → Injects --font-satoshi CSS variable with auto-adjusted fallback metrics
+     → Preloads .woff2 files automatically
+     → Eliminates FOUT/CLS on heading font swap
+   - Body font falls back to a local sans stack via --font-inter
+     → Apps may still override the variable if they ship a local font
+   =========================== */
+@import "./tokens/colors.css";
+@import "./tokens/spacing.css";
+@import "./tokens/radius.css";
+@import "./tokens/shadows.css";
+@import "./tokens/layers.css";
+@import "./tokens/typography.css";
+@import "./tokens/motion.css";
+@import "./tokens/interactions.css";
+
+/* Color themes (data-theme axis) — MUST come after colors.css so their
+   [data-theme] blocks win on source order over the :root/.dark base. */
+@import "./tokens/themes/blue-ocean.css";
+@import "./tokens/themes/purple-rain.css";
+@import "./tokens/themes/sweet-pie.css";
+
+@variant dark (:is(.dark &));
+
+@utility ds-border-card {
+  border-color: var(--ds-border-card);
+}
+
+@utility ds-border-neutral {
+  border-color: var(--ds-border-neutral);
+}
+
+@utility ds-border-divider {
+  border-color: var(--ds-border-divider);
+}
+
+@utility ds-border-seam {
+  border-color: var(--ds-border-seam);
+}
+
+@utility ds-border-skeleton {
+  border-color: var(--ds-border-skeleton);
+}
+
+@utility ds-border-surface {
+  border-color: var(--ds-border-surface);
+}
+
+@utility ds-border-control {
+  border-color: var(--ds-border-control);
+}
+
+@utility ds-border-control-strong {
+  border-color: var(--ds-border-control-strong);
+}
+
+@utility ds-border-focus {
+  border-color: var(--ds-border-focus);
+}
+
+/* Canonical focus treatment for every interactive surface. Consumers use the
+   variant that owns focus (`focus-visible:`/`focus-within:`/`focus:`); width,
+   color and shadow composition stay centralized here. */
+@utility ds-focus-ring {
+  outline: none;
+  border-color: var(--ds-border-focus);
+  --tw-ring-color: var(--outline-ring);
+  --tw-ring-shadow: 0 0 0 var(--ds-focus-ring-width) var(--tw-ring-color);
+  box-shadow:
+    var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+    var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+@utility ds-focus-ring-inset {
+  outline: none;
+  border-color: var(--ds-border-focus);
+  --tw-ring-color: var(--outline-ring);
+  --tw-ring-shadow: inset 0 0 0 var(--ds-focus-ring-width) var(--tw-ring-color);
+  box-shadow:
+    var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+    var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+@utility ds-focus-ring-docked-bottom {
+  outline: none;
+  border-color: var(--ds-border-focus);
+  box-shadow:
+    var(--tw-inset-shadow),
+    var(--tw-inset-ring-shadow),
+    -1px 0 0 0 var(--outline-ring),
+    1px 0 0 0 var(--outline-ring),
+    0 -1px 0 0 var(--outline-ring),
+    var(--tw-shadow);
+}
+
+@utility ds-border-emphasis {
+  border-color: var(--ds-border-emphasis);
+}
+
+@utility ds-border-emphasis-strong {
+  border-color: var(--ds-border-emphasis-strong);
+}
+
+@utility ds-border-info {
+  border-color: var(--ds-border-info);
+}
+
+@utility ds-border-info-strong {
+  border-color: var(--ds-border-info-strong);
+}
+
+@utility ds-border-success {
+  border-color: var(--ds-border-success);
+}
+
+@utility ds-border-success-strong {
+  border-color: var(--ds-border-success-strong);
+}
+
+@utility ds-border-warning {
+  border-color: var(--ds-border-warning);
+}
+
+@utility ds-border-warning-strong {
+  border-color: var(--ds-border-warning-strong);
+}
+
+@utility ds-border-destructive {
+  border-color: var(--ds-border-destructive);
+}
+
+@utility ds-border-destructive-strong {
+  border-color: var(--ds-border-destructive-strong);
+}
+
+@utility ds-border-accent-blue {
+  border-color: var(--ds-border-accent-blue);
+}
+
+@utility ds-border-accent-blue-strong {
+  border-color: var(--ds-border-accent-blue-strong);
+}
+
+@utility ds-border-accent-purple {
+  border-color: var(--ds-border-accent-purple);
+}
+
+@utility ds-border-accent-purple-strong {
+  border-color: var(--ds-border-accent-purple-strong);
+}
+
+@utility ds-border-inverse {
+  border-color: var(--ds-border-inverse);
+}
+
+@utility ds-border-inverse-strong {
+  border-color: var(--ds-border-inverse-strong);
+}
+
+@utility ds-border-transparent {
+  border-color: transparent;
+}
+
+@utility ds-border-background {
+  border-color: var(--background);
+}
+
+@utility ds-border-l-info {
+  border-left-color: var(--ds-border-info-strong);
+}
+
+@utility ds-border-l-success {
+  border-left-color: var(--ds-border-success-strong);
+}
+
+@utility ds-border-l-warning {
+  border-left-color: var(--ds-border-warning-strong);
+}
+
+@utility ds-border-l-destructive {
+  border-left-color: var(--ds-border-destructive-strong);
+}
+
+@utility ds-border-l-neutral {
+  border-left-color: var(--ds-border-neutral);
+}
+
+/* ===========================
+   CRITICAL CSS - Prevent FOUC (Flash of Unstyled Content)
+   This CSS applies immediately to prevent white flash on dark mode.
+   MUST be before @layer base to have higher specificity.
+   =========================== */
+
+/* Apply color-scheme + background based on system preference (before JS runs). */
+html,
+body {
+  color-scheme: light;
+  background-color: var(--fouc-background-light);
+  /* NOTE: scrollbar-gutter removed to prevent white stripe when modals open */
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light),
+  html:not(.light) body {
+    color-scheme: dark;
+    background-color: var(--fouc-background-dark);
+  }
+}
+
+/* Override when .dark class is explicitly set (by JS or localStorage) */
+html.dark,
+html.dark body {
+  color-scheme: dark;
+  background-color: var(--background, var(--fouc-background-dark));
+}
+
+/* Override when .light class is explicitly set (by JS or localStorage) */
+html.light,
+html.light body {
+  color-scheme: light;
+  background-color: var(--background, var(--fouc-background-light));
+}
+
+/* Force dark scrollbar for specific pages (e.g., carta-proposta) */
+html.force-dark-scrollbar {
+  color-scheme: dark !important;
+  --scrollbar-thumb: #555;
+  --scrollbar-thumb-hover: #888;
+  --scrollbar-track: transparent;
+}
+
+html.force-dark-scrollbar body {
+  color-scheme: dark !important;
+  background-color: var(--page-bg, #121212);
+}
+
+/* Force light theme for route-level documents (e.g., privacy policy). */
+html.force-light-theme {
+  color-scheme: light !important;
+  background-color: var(--background, var(--fouc-background-light));
+  --scrollbar-thumb: #888;
+  --scrollbar-thumb-hover: #555;
+  --scrollbar-track: transparent;
+}
+
+html.force-light-theme body {
+  color-scheme: light !important;
+  background-color: var(--background, var(--fouc-background-light));
+}
+
+/* Global Scrollbar Styling */
+/* Global Scrollbar Styling - Applied recursively to all elements */
+/* WebKit Browsers (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px; /* Pill shape for modern look */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox / engines without ::-webkit-scrollbar: standard props.
+   Scoped via @supports so Chromium keeps using ::-webkit-scrollbar — whose
+   :hover state (above) respects --scrollbar-thumb-hover. Applying these
+   standard props unconditionally makes Chromium render the native scrollbar
+   and ignore the webkit :hover, so the hover stopped following the theme. */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+}
+
+/* Themed text selection (data-theme axis). project (default) keeps the
+   browser-default selection; color themes tint it with their accent. */
+:root:not([data-theme="project"]) ::selection {
+  background-color: color-mix(in srgb, var(--secondary) 35%, transparent);
+}
+
+/* Specific overrides can remain if needed, but defaults are now set globally */
+
+@layer base {
+  * {
+    @apply ds-border-surface outline-ring/50;
+  }
+
+  body {
+    --font-sans:
+      var(--font-satoshi), var(--font-inter), ui-sans-serif, system-ui,
+      sans-serif;
+    --font-heading:
+      var(--font-satoshi), var(--font-inter), ui-sans-serif, system-ui,
+      sans-serif;
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    /* Satoshi é carregada em faces estáticas 400/500/700 — não há eixo
+       variável, então 450 não existe. Sem esta linha o corpo caía no default
+       do UA (400) e o texto lia como fino demais. `font-normal` continua
+       funcionando como escape hatch onde o peso menor é intencional. */
+    font-weight: var(--typography-font-weight-medium);
+  }
+  input::placeholder,
+  textarea::placeholder,
+  [data-slot="input"]::placeholder,
+  [data-slot="textarea"]::placeholder {
+    color: var(--placeholder);
+    opacity: 1;
+  }
+}
+
+/* Prevent iOS Safari auto-zoom on focus for text-entry controls. */
+@supports (-webkit-touch-callout: none) {
+  @media (hover: none) and (pointer: coarse) {
+    input:not([type="button"]):not([type="checkbox"]):not([type="color"]):not(
+        [type="file"]
+      ):not([type="hidden"]):not([type="image"]):not([type="radio"]):not(
+        [type="range"]
+      ):not([type="reset"]):not([type="submit"]),
+    textarea,
+    select,
+    [data-slot="input"],
+    [data-slot="textarea"] {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* ===========================
+   Markdown do assistente
+   =========================== */
+
+.markdown-content p {
+  margin-bottom: 0.75rem;
+}
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+.markdown-content ul,
+.markdown-content ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+.markdown-content ul {
+  list-style-type: disc;
+}
+.markdown-content ol {
+  list-style-type: decimal;
+}
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+.markdown-content li:last-child {
+  margin-bottom: 0;
+}
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.markdown-content h1:first-child,
+.markdown-content h2:first-child,
+.markdown-content h3:first-child,
+.markdown-content h4:first-child,
+.markdown-content h5:first-child,
+.markdown-content h6:first-child {
+  margin-top: 0;
+}
+.markdown-content pre {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+.markdown-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+}
+.markdown-content blockquote {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+  color: var(--foreground);
+  opacity: 0.8;
+}
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  display: block;
+}
+.markdown-content th,
+.markdown-content td {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+.markdown-content th {
+  background-color: var(--hover-soft);
+  font-weight: 500;
+}
+.markdown-content tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.dark .markdown-content tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* ===========================
+   UTILITY: HIDE SCROLLBAR
+   Hides scrollbar while maintaining scroll functionality
+   Useful for horizontal pill/tab navigation on mobile
+   =========================== */
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}

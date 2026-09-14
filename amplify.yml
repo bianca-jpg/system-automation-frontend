@@ -1,0 +1,23 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - corepack enable
+        - pnpm config set store-dir .pnpm-store
+        - pnpm install
+    build:
+      commands:
+        - test -n "${AUTH_SECRET:-}"
+        - test -n "${NEXT_PUBLIC_API_URL:-}"
+        - env | grep -e '^API_URL=' -e '^AUTH_SECRET=' -e '^AUTH_URL=' -e '^NEXTAUTH_SECRET=' -e '^NEXT_PUBLIC_API_URL=' -e '^AUTH_MICROSOFT_ENTRA_ID_ID=' -e '^AUTH_MICROSOFT_ENTRA_ID_SECRET=' -e '^AUTH_MICROSOFT_ENTRA_ID_ISSUER=' > .env.production
+        - pnpm build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .next/cache/**/*
+      - .pnpm-store/**/*
+      - node_modules/**/*
