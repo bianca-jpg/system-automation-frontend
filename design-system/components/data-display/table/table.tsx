@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import * as React from "react";
 import {
@@ -529,7 +529,7 @@ const EMPTY_ACTIONS: never[] = [];
 // da linha (abaixo) para todo consumidor que não passa `rowKey` — ou seja, o
 // scroll voltava a reconciliar a tabela inteira.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const DEFAULT_ROW_KEY = (item: any): string | number => item.id;
+const DEFAULT_ROW_KEY = (item: Record<string, any>): string | number => item.id;
 
 /**
  * Rótulo acessível da linha. Vive no módulo (e não dentro do corpo da tabela)

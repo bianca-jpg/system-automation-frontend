@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
@@ -84,14 +84,16 @@ export function LoginPage() {
     if (sessionExpiredSignOutStartedRef.current) return;
 
     sessionExpiredSignOutStartedRef.current = true;
-    void fetch("/api/auth/force-api-signout", {
+    fetch("/api/auth/force-api-signout", {
       method: "POST",
       cache: "no-store",
       credentials: "include",
-    }).finally(() => {
-      router.replace(buildCleanLoginPath(searchParams));
-      router.refresh();
-    });
+    })
+      .catch((err) => console.error("[Auth] Falha no signout da API:", err))
+      .finally(() => {
+        router.replace(buildCleanLoginPath(searchParams));
+        router.refresh();
+      });
   }, [errorParam, router, searchParams, session?.user, sessionStatus]);
 
   /** `forceSignOut=api`: força o signout na API e limpa a URL, preservando `callbackUrl`. */
@@ -100,14 +102,16 @@ export function LoginPage() {
     if (forceSignOutParam !== "api") return;
 
     forceSignOutStartedRef.current = true;
-    void fetch("/api/auth/force-api-signout", {
+    fetch("/api/auth/force-api-signout", {
       method: "POST",
       cache: "no-store",
       credentials: "include",
-    }).finally(() => {
-      router.replace(buildCleanLoginPath(searchParams));
-      router.refresh();
-    });
+    })
+      .catch((err) => console.error("[Auth] Falha no signout da API:", err))
+      .finally(() => {
+        router.replace(buildCleanLoginPath(searchParams));
+        router.refresh();
+      });
   }, [forceSignOutParam, router, searchParams]);
 
   function handleSsoSignIn() {
